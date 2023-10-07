@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  Index Physical Structure Example; Multi-column Non-Clustered Index with Includes
+title:  Index Physical Structure Example - Multi-column Non-Clustered Index with Includes
 date: 2020-07-18 21:01:00
 description: Index Physical Structure Example; Multi-column Non-Clustered Index with Includes
-tags: Index Physical Structure Multi-column Non-Clustered Index Includes
+tags: index multi-column non-clustered database physical-design-structure
 categories: database
 thumbnail: assets/img/physical_design_example_non_clustered_index_with_includes_1.png
 ---
