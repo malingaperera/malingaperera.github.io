@@ -23,6 +23,3 @@ select relname as table_name, <br />
        pg_size_pretty(pg_indexes_size(relid)) as index_size <br />
 from pg_catalog.pg_statio_user_tables; <br />
 </code>
-
-Below diagram shows the structure of this non-clustered index.
-
