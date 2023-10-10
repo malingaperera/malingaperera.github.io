@@ -6,6 +6,7 @@ description: Index Physical Structure Example; Multi-column Non-Clustered Index 
 tags: index multi-column non-clustered database physical-design-structure
 categories: database
 thumbnail: assets/img/physical_design_example_non_clustered_index_with_includes_1.png
+giscus_comments: true
 ---
 
 <div class="row mt-3">
