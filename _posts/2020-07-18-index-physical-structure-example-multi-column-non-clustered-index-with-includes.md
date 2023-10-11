@@ -5,13 +5,13 @@ date: 2020-07-18 21:01:00
 description: Index Physical Structure Example; Multi-column Non-Clustered Index with Includes
 tags: indices multi-column non-clustered database physical-design-structure
 categories: database
-thumbnail: assets/img/physical_design_example_non_clustered_index_with_includes_1.png
-giscus_comments: true
+thumbnail: assets/img/physical_design_example_non_clustered_index_with_includes/physical_design_example_non_clustered_index_with_includes_1.png
+giscus_comments: false
 ---
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/physical_design_example_non_clustered_index_with_includes_1.png" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/physical_design_example_non_clustered_index_with_includes/physical_design_example_non_clustered_index_with_includes_1.png" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -30,7 +30,7 @@ Below diagram shows the structure of this non-clustered index.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/physical_design_example_non_clustered_index_with_includes.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+        {% include figure.html path="assets/img/physical_design_example_non_clustered_index_with_includes/physical_design_example_non_clustered_index_with_includes.png" class="img-fluid rounded z-depth-1" zoomable=true %}
     </div>
 </div>
 <div class="caption">
