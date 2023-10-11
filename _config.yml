@@ -76,7 +76,7 @@ scholar_userid: # your Google Scholar ID
 semanticscholar_id: # your Semantic Scholar ID
 whatsapp_number: # your WhatsApp number (full phone number in international format. Omit any zeroes, brackets, or dashes when adding the phone number in international format.)
 orcid_id: 0000-0003-1622-3244
-medium_username: # your Medium username
+medium_username: malingap
 quora_username: # your Quora username
 publons_id: # your ID on Publons
 lattes_id: # your ID on Lattes (Brazilian Lattes CV)
@@ -88,7 +88,7 @@ work_url: # work page URL
 keybase_username: # your keybase user name
 wikidata_id: # your wikidata id
 wikipedia_id: # your wikipedia id (Case sensitive)
-dblp_url: # your DBLP profile url
+dblp_url: https://dblp.org/pid/236/4914.html
 stackoverflow_id: # your stackoverflow id
 kaggle_id: # your kaggle id
 lastfm_id: # your lastfm id
@@ -136,7 +136,7 @@ related_blog_posts:
 # Follow instructions on https://giscus.app/ to setup for your repo to fill out
 # the information below.
 giscus:
-  enabled: true
+  enabled: false
   repo: malingaperera/malingaperera.github.io.comments                         # <your-github-user-name>/<your-github-repo-name>
   category: Announcements             # name of the category under which discussions will be created
   mapping: title                 # identify discussions by post title
@@ -155,8 +155,8 @@ disqus_shortname: # put your disqus shortname
 # If you have blog posts published on medium.com or other external sources,
 # you can display them in your blog by adding a link to the RSS feed.
 external_sources:
-  - name: medium.com
-    rss_url: https://medium.com/@malingap/feed
+#  - name: medium.com
+#    rss_url: https://medium.com/@malingap/feed
 
 # -----------------------------------------------------------------------------
 # Collections
