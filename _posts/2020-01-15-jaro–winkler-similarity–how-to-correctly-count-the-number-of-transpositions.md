@@ -5,13 +5,13 @@ date: 2020-01-15 21:01:00
 description: Jaro–Winkler Similarity – How to correctly count the number of transpositions
 tags: algorithms
 categories: algorithms
-thumbnail: assets\img\jaro_winkler_distance\jaro_winkler_distance.png
+thumbnail: assets/img/jaro_winkler_distance/jaro_winkler_distance.png
 giscus_comments: false
 ---
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets\img\jaro_winkler_distance\jaro_winkler_distance.png" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/jaro_winkler_distance/jaro_winkler_distance.png" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 

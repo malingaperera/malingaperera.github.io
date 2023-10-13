@@ -5,13 +5,13 @@ date: 2021-02-11 21:01:00
 description: VS Code Won’t Open After Unplanned Restart (Failed to deserialize the V8 snapshot blob)
 tags: coding programming tools
 categories: programming
-thumbnail: assets\img\vs_code_wont_open\vs_code_wont_open.png
+thumbnail: assets/img/vs_code_wont_open/vs_code_wont_open.png
 giscus_comments: false
 ---
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets\img\vs_code_wont_open\vs_code_wont_open.png" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/vs_code_wont_open/vs_code_wont_open.png" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
