@@ -3,7 +3,7 @@ layout: post
 description: Reading and Understanding the Storm UI [Storm UI explained]
 tags: life other
 categories: other
-thumbnail: assets/img/water-bill-calculator-sri-lanka/water-bill-calculator-sri-lanka.png
+thumbnail: assets/images/Understanding-storm-UI.jpg
 giscus_comments: false
 title: "Reading and Understanding the Storm UI [Storm UI explained]"
 date: "2015-04-08"
