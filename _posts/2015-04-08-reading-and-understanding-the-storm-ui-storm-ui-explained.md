@@ -1,8 +1,8 @@
 ---
 layout: post
 description: Reading and Understanding the Storm UI [Storm UI explained]
-tags: life other
-categories: other
+tags: storm
+categories: distributed_processing
 thumbnail: assets/images/Understanding-storm-UI.jpg
 giscus_comments: false
 title: "Reading and Understanding the Storm UI [Storm UI explained]"
