@@ -1,0 +1,252 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta name="google-site-verification" content="_PLYlFzfO_lGMbNMlE69Ud5LJ2P-BhbJvR-3-_oXzIw"> <meta http-equiv="Permissions-Policy" content="interest-cohort=()"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title>Microsoft SQL Server 2016 Database with IMDB 2013 Dataset | Romesh Malinga Perera</title> <meta name="author" content="R. Malinga Perera"> <meta name="description" content="Microsoft SQL Server 2016 Database with IMDB 2013 Dataset"> <meta name="keywords" content="R. Malinga Perera, AWS, Amazon, Researcher, University of Melbourne"> <link rel="stylesheet" href="/assets/css/bootstrap.min.css?a4b3f509e79c54a512b890d73235ef04"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.css"> <link rel="stylesheet" href="/assets/css/academicons.min.css?f0b7046b84e425c55f3463ac249818f5"> <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons"> <link rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?19f3075a2d19613090fe9e16b564e1fe" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="/assets/img/favi.png?04973ede2ae0fe2e2b3f25d362982959"> <link rel="stylesheet" href="/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e"> <link rel="canonical" href="https://malingaperera.github.io/microsoft-sql-server-2016-database-with-imdb-2013-dataset/"> <link rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?e74e74bf055e5729d44a7d031a5ca6a5" media="none" id="highlight_theme_dark"> <script src="/assets/js/theme.js?96d6b3e1c3604aca8b6134c7afdd5db6"></script> <script src="/assets/js/dark_mode.js?9b17307bb950ffa2e34be0227f53558f"></script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/">Romesh Malinga Perera</a> <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse text-right" id="navbarNav"> <ul class="navbar-nav ml-auto flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">About</a> </li> <li class="nav-item "> <a class="nav-link" href="/blog/">Blog</a> </li> <li class="nav-item "> <a class="nav-link" href="/publications/">Publications</a> </li> <li class="nav-item "> <a class="nav-link" href="/resume/">Resume</a> </li> <li class="toggle-container"> <button id="light-toggle" title="Change theme"> <i class="fas fa-moon"></i> <i class="fas fa-sun"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5"> <div class="post"> <header class="post-header"> <h1 class="post-title">Microsoft SQL Server 2016 Database with IMDB 2013 Dataset</h1> <p class="post-meta">March 31, 2020</p> <p class="post-tags"> <a href="/2020"> <i class="fas fa-calendar fa-sm"></i> 2020 </a>   ·   <a href="/tag/microsoft"> <i class="fas fa-hashtag fa-sm"></i> microsoft</a>   <a href="/tag/sql-server"> <i class="fas fa-hashtag fa-sm"></i> sql-server</a>   <a href="/tag/imdb"> <i class="fas fa-hashtag fa-sm"></i> imdb</a>     ·   <a href="/category/database"> <i class="fas fa-tag fa-sm"></i> database</a>   </p> </header> <article class="post-content"> <div id="markdown-content"> <div class="row mt-3"> <div class="col-sm mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/images/Microsoft-SQL-Server-2016-Database-with-IMDB-2013-Dataset-480.webp"></source> <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/images/Microsoft-SQL-Server-2016-Database-with-IMDB-2013-Dataset-800.webp"></source> <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/images/Microsoft-SQL-Server-2016-Database-with-IMDB-2013-Dataset-1400.webp"></source> <img src="/assets/images/Microsoft-SQL-Server-2016-Database-with-IMDB-2013-Dataset.png" class="img-fluid rounded z-depth-1 mx-auto d-block" width="auto" height="auto" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"> </picture> </figure> </div> </div> <p>Recently I wanted to run the <a href="https://github.com/gregrahn/join-order-benchmark" rel="external nofollow noopener" target="_blank">JOB benchmark</a> for an experiment. This benchmark uses an <a href="http://homepages.cwi.nl/~boncz/job/imdb.tgz" rel="external nofollow noopener" target="_blank">IMDB dataset</a>, published in 2013. Initially, I had some trouble running the benchmark as it was designed for a PostgreSQL database. And the dataset was created in a UNIX system which can create issues when used in a Windows system. So I decided to share the exact steps you need to take to take in order to create a Microsoft SQL Server database with IMDB dataset. All the scripts used in the project can be found in this <a href="https://github.com/malingaperera/imdb_2013_sql_server_2016" rel="external nofollow noopener" target="_blank">Git repo</a>.</p> <h2 id="step-1-create-a-database-in-sql-server"> <strong>Step 1</strong>: Create a database in SQL server.</h2> <p>I simply used SSMS for this but you are free to use any method that you are familiar with. If you want to specifically set the data and log locations for the data set you can use the below script. Replace the db_location with the right location for your system.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>USE master ;  
+GO  
+CREATE DATABASE IMDB  
+ON   
+( NAME = imdb_dat,  
+    FILENAME = 'db_location\imdbdat.mdf',  
+    SIZE = 1024MB,  
+    MAXSIZE = UNLIMITED,  
+    FILEGROWTH = 128MB )  
+LOG ON  
+( NAME = imdb_log,  
+    FILENAME = 'db_location\imdblog.ldf',  
+    SIZE = 1024MB,  
+    MAXSIZE = 2048GB,  
+    FILEGROWTH = 50MB ) ;  
+GO 
+</code></pre></div></div> <h2 id="step-2-create-tables"> <strong>Step 2</strong>: Create Tables</h2> <p>Don’t use the script you find in the JOB benchmark or with the dataset. This script is created for PostgreSQL and will not work as it is for SQL Server. You can use the edited version below. Note that I have used limits for all the VARCHAR columns under 8000 length. This limit was based on the maximum length of each column. For columns with maximum length over 8000, I have used the VARCHAR(MAX) type.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CREATE TABLE aka_name (
+    id integer NOT NULL PRIMARY KEY,
+    person_id integer NOT NULL,
+    name varchar(255),
+    imdb_index varchar(3),
+    name_pcode_cf varchar(11),
+    name_pcode_nf varchar(11),
+    surname_pcode varchar(11),
+    md5sum varchar(65)
+);
+
+CREATE TABLE aka_title (
+    id integer NOT NULL PRIMARY KEY,
+    movie_id integer NOT NULL,
+    title varchar(600),
+    imdb_index varchar(4),
+    kind_id integer NOT NULL,
+    production_year integer,
+    phonetic_code varchar(5),
+    episode_of_id integer,
+    season_nr integer,
+    episode_nr integer,
+    note varchar(72),
+    md5sum varchar(33)
+);
+
+CREATE TABLE cast_info (
+    id integer NOT NULL PRIMARY KEY,
+    person_id integer NOT NULL,
+    movie_id integer NOT NULL,
+    person_role_id integer,
+    note varchar(1000),
+    nr_order integer,
+    role_id integer NOT NULL
+);
+
+CREATE TABLE char_name (
+    id integer NOT NULL PRIMARY KEY,
+    name varchar(500) NOT NULL,
+    imdb_index varchar(2),
+    imdb_id integer,
+    name_pcode_nf varchar(5),
+    surname_pcode varchar(5),
+    md5sum varchar(33)
+);
+
+CREATE TABLE comp_cast_type (
+    id integer NOT NULL PRIMARY KEY,
+    kind varchar(32) NOT NULL
+);
+
+CREATE TABLE company_name (
+    id integer NOT NULL PRIMARY KEY,
+    name varchar(255) NOT NULL,
+    country_code varchar(6),
+    imdb_id integer,
+    name_pcode_nf varchar(5),
+    name_pcode_sf varchar(5),
+    md5sum varchar(33)
+);
+
+CREATE TABLE company_type (
+    id integer NOT NULL PRIMARY KEY,
+    kind varchar(32)
+);
+
+CREATE TABLE complete_cast (
+    id integer NOT NULL PRIMARY KEY,
+    movie_id integer,
+    subject_id integer NOT NULL,
+    status_id integer NOT NULL
+);
+
+CREATE TABLE info_type (
+    id integer NOT NULL PRIMARY KEY,
+    info varchar(32) NOT NULL
+);
+
+CREATE TABLE keyword (
+    id integer NOT NULL PRIMARY KEY,
+    keyword varchar(100) NOT NULL,
+    phonetic_code varchar(6)
+);
+
+CREATE TABLE kind_type (
+    id integer NOT NULL PRIMARY KEY,
+    kind varchar(15)
+);
+
+CREATE TABLE link_type (
+    id integer NOT NULL PRIMARY KEY,
+    link varchar(32) NOT NULL
+);
+
+CREATE TABLE movie_companies (
+    id integer NOT NULL PRIMARY KEY,
+    movie_id integer NOT NULL,
+    company_id integer NOT NULL,
+    company_type_id integer NOT NULL,
+    note varchar(255)
+);
+
+CREATE TABLE movie_info_idx (
+    id integer NOT NULL PRIMARY KEY,
+    movie_id integer NOT NULL,
+    info_type_id integer NOT NULL,
+    info varchar(10) NOT NULL,
+    note varchar(1)
+);
+
+CREATE TABLE movie_keyword (
+    id integer NOT NULL PRIMARY KEY,
+    movie_id integer NOT NULL,
+    keyword_id integer NOT NULL
+);
+
+CREATE TABLE movie_link (
+    id integer NOT NULL PRIMARY KEY,
+    movie_id integer NOT NULL,
+    linked_movie_id integer NOT NULL,
+    link_type_id integer NOT NULL
+);
+
+CREATE TABLE name (
+    id integer NOT NULL PRIMARY KEY,
+    name varchar(125) NOT NULL,
+    imdb_index varchar(9),
+    imdb_id integer,
+    gender varchar(1),
+    name_pcode_cf varchar(5),
+    name_pcode_nf varchar(5),
+    surname_pcode varchar(5),
+    md5sum varchar(33)
+);
+
+CREATE TABLE role_type (
+    id integer NOT NULL PRIMARY KEY,
+    role varchar(32) NOT NULL
+);
+
+CREATE TABLE title (
+    id integer NOT NULL PRIMARY KEY,
+    title varchar(350) NOT NULL,
+    imdb_index varchar(5),
+    kind_id integer NOT NULL,
+    production_year integer,
+    imdb_id integer,
+    phonetic_code varchar(5),
+    episode_of_id integer,
+    season_nr integer,
+    episode_nr integer,
+    series_years varchar(49),
+    md5sum varchar(33)
+);
+
+CREATE TABLE movie_info (
+    id integer NOT NULL PRIMARY KEY,
+    movie_id integer NOT NULL,
+    info_type_id integer NOT NULL,
+    info varchar(MAX) NOT NULL,
+    note varchar(500)
+);
+
+CREATE TABLE person_info (
+    id integer NOT NULL PRIMARY KEY,
+    person_id integer NOT NULL,
+    info_type_id integer NOT NULL,
+    info varchar(MAX) NOT NULL,
+    note varchar(500)
+);
+</code></pre></div></div> <h2 id="step-3-convert-data-files-to-a-sql-serverwindows-friendly-version">Step 3: Convert data files to a SQL server/Windows-friendly version</h2> <p>Extract the downloaded zip file (I used 7-zip and had to extract it twice to access the files). Seems like these files were created in UNIX system and there are differences in the escaping and the line ending. I run the following python code to edit the files. It creates the edited files in a separate folder called ‘edited’ inside the original folder. Replace the data_location with the right location for your system. Make sure you have only data files (csv) in the data location, nothing else.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import os
+from os.path import isfile, join, exists
+
+imdb_data_location = 'data_location'
+os.chdir(imdb_data_location)
+only_files = [ f for f in os.listdir('.') if isfile(join('.', f)) ]
+if not exists('edited'):
+    os.makedirs('edited')
+for file in only_files:
+    with open(file, "r", encoding='utf-8') as ori:
+        with open(f"edited\{file}", "w", encoding='utf-8') as dest:
+            for line in ori:
+                dest.write(line.replace('\\\\', '#$#$').replace('\\"', '""').replace('#$#$', '\\'))
+</code></pre></div></div> <h2 id="step-4-load-data-using-bulk-load">Step 4: Load data using Bulk load</h2> <p>Now I’m going to use the SQL Server bulk insert to insert the data into the tables. Replace the <data location=""> with the right location for your system. You don't have to set the `ROWTERMINATOR`, `FIELDTERMINATOR` or the`FIELDQUOTE`, as we have defined the format as CSV.</data></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>BULK INSERT aka_name FROM 'data_location\edited\aka_name.csv' WITH (FORMAT='CSV', CODEPAGE = '65001')
+BULK INSERT aka_title FROM 'data_location\edited\aka_title.csv' WITH (FORMAT='CSV', CODEPAGE = '65001')
+BULK INSERT cast_info FROM 'data_location\edited\cast_info.csv' WITH (FORMAT='CSV', CODEPAGE = '65001')
+BULK INSERT char_name FROM 'data_location\edited\char_name.csv' WITH (FORMAT='CSV', CODEPAGE = '65001')
+BULK INSERT comp_cast_type FROM 'data_location\edited\comp_cast_type.csv' WITH (FORMAT='CSV', CODEPAGE = '65001')
+BULK INSERT company_name FROM 'data_location\edited\company_name.csv' WITH (FORMAT='CSV', CODEPAGE = '65001')
+BULK INSERT company_type FROM 'data_location\edited\company_type.csv' WITH (FORMAT='CSV', CODEPAGE = '65001')
+BULK INSERT complete_cast FROM 'data_location\edited\complete_cast.csv' WITH (FORMAT='CSV', CODEPAGE = '65001')
+BULK INSERT info_type FROM 'data_location\edited\info_type.csv' WITH (FORMAT='CSV', CODEPAGE = '65001')
+BULK INSERT keyword FROM 'data_location\edited\keyword.csv' WITH (FORMAT='CSV', CODEPAGE = '65001')
+BULK INSERT kind_type FROM 'data_location\edited\kind_type.csv' WITH (FORMAT='CSV', CODEPAGE = '65001')
+BULK INSERT link_type FROM 'data_location\edited\link_type.csv' WITH (FORMAT='CSV', CODEPAGE = '65001')
+BULK INSERT movie_companies FROM 'data_location\edited\movie_companies.csv' WITH (FORMAT='CSV', CODEPAGE = '65001')
+BULK INSERT movie_info FROM 'data_location\edited\movie_info.csv' WITH (FORMAT='CSV', CODEPAGE = '65001')
+BULK INSERT movie_info_idx FROM 'data_location\edited\movie_info_idx.csv' WITH (FORMAT='CSV', CODEPAGE = '65001')
+BULK INSERT movie_keyword FROM 'data_location\edited\movie_keyword.csv' WITH (FORMAT='CSV', CODEPAGE = '65001')
+BULK INSERT movie_link FROM 'data_location\edited\movie_link.csv' WITH (FORMAT='CSV', CODEPAGE = '65001')
+BULK INSERT name FROM 'data_location\edited\name.csv' WITH (FORMAT='CSV', CODEPAGE = '65001')
+BULK INSERT person_info FROM 'data_location\edited\person_info.csv' WITH (FORMAT='CSV', CODEPAGE = '65001')
+BULK INSERT role_type FROM 'data_location\edited\role_type.csv' WITH (FORMAT='CSV', CODEPAGE = '65001')
+BULK INSERT title FROM 'data_location\edited\title.csv' WITH (FORMAT='CSV', CODEPAGE = '65001')
+</code></pre></div></div> <h2 id="step-5-optional-create-foreign-keys">Step 5 (Optional): Create Foreign Keys</h2> <p>Foreign keys specified in the JOB are not that clear for me. Some of them contradict with the dataset. I re-wrote them to SQL Server based on my understanding. JOB mention that these foreign keys are optional.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ALTER TABLE movie_companies ADD CONSTRAINT fk_company_id_movie_companies FOREIGN KEY(company_id) REFERENCES company_name(id);
+ALTER TABLE movie_companies ADD CONSTRAINT fk_company_type_id_movie_companies FOREIGN KEY(company_type_id) REFERENCES company_type(id);
+ALTER TABLE movie_info_idx ADD CONSTRAINT fk_info_type_id_movie_info_idx FOREIGN KEY(info_type_id) REFERENCES info_type(id);
+ALTER TABLE movie_info ADD CONSTRAINT fk_info_type_id_movie_info FOREIGN KEY(info_type_id) REFERENCES info_type(id);
+ALTER TABLE person_info ADD CONSTRAINT fk_info_type_id_person_info FOREIGN KEY(info_type_id) REFERENCES info_type(id);
+ALTER TABLE movie_keyword ADD CONSTRAINT fk_keyword_id_movie_keyword FOREIGN KEY(keyword_id) REFERENCES keyword(id);
+ALTER TABLE aka_title ADD CONSTRAINT fk_kind_id_aka_title FOREIGN KEY(kind_id) REFERENCES kind_type(id);
+ALTER TABLE title ADD CONSTRAINT fk_kind_id_title FOREIGN KEY(kind_id) REFERENCES kind_type(id);
+ALTER TABLE movie_link ADD CONSTRAINT fk_linked_movie_id_movie_link FOREIGN KEY(linked_movie_id) REFERENCES movie_info(id);
+ALTER TABLE movie_link ADD CONSTRAINT fk_link_type_id_movie_link FOREIGN KEY(link_type_id) REFERENCES link_type(id);
+-- ALTER TABLE aka_title ADD CONSTRAINT fk_movie_id_aka_title FOREIGN KEY(movie_id) REFERENCES movie_info(id);
+ALTER TABLE cast_info ADD CONSTRAINT fk_movie_id_cast_info FOREIGN KEY(movie_id) REFERENCES movie_info(id);
+ALTER TABLE complete_cast ADD CONSTRAINT fk_movie_id_complete_cast FOREIGN KEY(movie_id) REFERENCES movie_info(id);
+ALTER TABLE movie_companies ADD CONSTRAINT fk_movie_id_movie_companies FOREIGN KEY(movie_id) REFERENCES movie_info(id);
+ALTER TABLE movie_info_idx ADD CONSTRAINT fk_movie_id_movie_info_idx FOREIGN KEY(movie_id) REFERENCES movie_info(id);
+ALTER TABLE movie_keyword ADD CONSTRAINT fk_movie_id_movie_keyword FOREIGN KEY(movie_id) REFERENCES movie_info(id);
+ALTER TABLE movie_link ADD CONSTRAINT fk_movie_id_movie_link FOREIGN KEY(movie_id) REFERENCES movie_info(id);
+-- ALTER TABLE aka_name ADD CONSTRAINT fk_person_id_aka_name FOREIGN KEY(person_id) REFERENCES person_info(id);
+-- ALTER TABLE cast_info ADD CONSTRAINT fk_person_id_cast_info FOREIGN KEY(person_id) REFERENCES person_info(id);
+ALTER TABLE cast_info ADD CONSTRAINT fk_role_id_cast_info FOREIGN KEY(role_id) REFERENCES role_type(id);
+</code></pre></div></div> <h2 id="step-6-optional-truncate-long-columns">Step 6 (Optional): Truncate long columns</h2> <p>Some of you might not like to keep VARCHAR(MAX) columns as you cannot create non-clustered indexes on them. You can use the below scripts to truncate the columns and ALTER the table.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>UPDATE person_info
+SET  info = LEFT(info, 7999)
+WHERE LEN(info) &gt; 7999
+
+ALTER TABLE person_info ALTER COLUMN info varchar(7999);
+
+UPDATE movie_info
+SET  info = LEFT(info, 7999)
+WHERE LEN(info) &gt; 7999
+
+ALTER TABLE movie_info ALTER COLUMN info varchar(7999);
+</code></pre></div></div> <p>Next steps with running the JOB will be added soon…</p> </div> </article> <br> <hr> <br> <ul class="list-disc pl-8"></ul> <h2 class="text-3xl font-semibold mb-4 mt-12">Enjoy Reading This Article?</h2> <p class="mb-2">Here are some more articles you might like to read next:</p> <li class="my-2"> <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/reading-and-understanding-the-storm-ui-storm-ui-explained/">Reading and Understanding the Storm UI [Storm UI explained]</a> </li> <li class="my-2"> <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/postgresql-bulk-inserting-from-a-delimited-file-most-common-errors-in-windows/">PostgreSQL – BULK INSERTING from a delimited file, Most common errors in Windows</a> </li> <li class="my-2"> <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/toastmasters-round-robin-session-round-robin-master-role-and-new-ideas/">Toastmasters Round Robin session, Round Robin Master Role and New ideas</a> </li> <li class="my-2"> <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/index-physical-structure-example-multi-column-non-clustered-index-with-includes/">Index Physical Structure Example - Multi-column Non-Clustered Index with Includes</a> </li> <li class="my-2"> <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/sql-server-snapshot-creation-error-all-files-must-be-specified-for-database-snapshot-creation/">SQL Server Snapshot Creation Error - "All files must be specified for database snapshot creation"</a> </li> </div> </div> <footer class="fixed-bottom"> <div class="container mt-0"> © Copyright 2023 R. Malinga Perera. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>. </div> </footer> <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> <script src="/assets/js/bootstrap.bundle.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.8/dist/medium-zoom.min.js" integrity="sha256-7PhEpEWEW0XXQ0k6kQrPKwuoIomz8R8IYyuU1Qew4P8=" crossorigin="anonymous"></script> <script defer src="/assets/js/zoom.js?7b30caa5023af4af8408a472dc4e1ebb"></script> <script defer src="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.js"></script> <script src="/assets/js/no_defer.js?d633890033921b33e0ceb13d22340a9c"></script> <script defer src="/assets/js/common.js?acdb9690d7641b2f8d40529018c71a01"></script> <script defer src="/assets/js/copy_code.js?c9d9dd48933de3831b3ee5ec9c209cac" type="text/javascript"></script> <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script> <script async src="https://badge.dimensions.ai/badge.js"></script> <script async src="https://www.googletagmanager.com/gtag/js?id=G-DZBX7PNSL8"></script> <script>function gtag(){window.dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-DZBX7PNSL8");</script> <script type="text/javascript">function progressBarSetup(){"max"in document.createElement("progress")?(initializeProgressElement(),$(document).on("scroll",function(){progressBar.attr({value:getCurrentScrollPosition()})}),$(window).on("resize",initializeProgressElement)):(resizeProgressBar(),$(document).on("scroll",resizeProgressBar),$(window).on("resize",resizeProgressBar))}function getCurrentScrollPosition(){return $(window).scrollTop()}function initializeProgressElement(){let e=$("#navbar").outerHeight(!0);$("body").css({"padding-top":e}),$("progress-container").css({"padding-top":e}),progressBar.css({top:e}),progressBar.attr({max:getDistanceToScroll(),value:getCurrentScrollPosition()})}function getDistanceToScroll(){return $(document).height()-$(window).height()}function resizeProgressBar(){progressBar.css({width:getWidthPercentage()+"%"})}function getWidthPercentage(){return getCurrentScrollPosition()/getDistanceToScroll()*100}const progressBar=$("#progress");window.onload=function(){setTimeout(progressBarSetup,50)};</script> </body> </html>
