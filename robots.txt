@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://malingaperera.github.io/sitemap.xml
+Sitemap: https://www.malinga.me/sitemap.xml
