@@ -1,12 +1,12 @@
 ---
 layout: post
 title: "HMAB: Teaching Databases to Tune Themselves"
-date: 2026-01-04
+date: 2026-01-03
 description: A simple explanation of how HMAB uses machine learning to automatically optimize database performance
 tags: research databases machine-learning
 categories: research
 thumbnail: assets/images/DBA-Bandit-Self-driving-index-tuning-under-ad-hoc-analytical-workloads-with-safety-guarantees.png
-giscus_comments: true
+giscus_comments: false
 ---
 
 <div class="row mt-3">

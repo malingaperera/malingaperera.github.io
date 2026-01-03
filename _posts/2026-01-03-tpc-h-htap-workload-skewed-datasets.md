@@ -1,11 +1,11 @@
 ---
 layout: post
 title: "TPC-H HTAP: INSERT, UPDATE, DELETE Queries for Skewed Datasets"
-date: 2026-01-04
+date: 2026-01-03
 description: Generating transactional queries for TPC-H Skew to enable realistic HTAP workload testing
 tags: databases benchmarking HTAP research
 categories: research
-giscus_comments: true
+giscus_comments: false
 ---
 
 While HTAP (Hybrid Transactional/Analytical Processing) workloads exist for database benchmarking, **none of them support highly skewed data distributions** like those found in real-world systems. This is a significant gap because production databases rarely have uniformly distributed data.
