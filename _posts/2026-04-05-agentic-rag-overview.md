@@ -7,6 +7,7 @@ tags: rag agents aws llm
 categories:
   - artificial intelligence
 thumbnail: assets/images/2026-04-05-agentic-rag-overview/agentic-rag-overview.svg
+og_image: assets/images/2026-04-05-agentic-rag-overview/agentic-rag-overview.png
 giscus_comments: false
 published: true
 ---
