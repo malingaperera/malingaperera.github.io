@@ -30,7 +30,7 @@ This series is my attempt to make that design space concrete, using one small bu
 
 **RAG stands for retrieval-augmented generation.** Instead of asking a model to answer from its built-in training alone, you first retrieve relevant external information and then give that information to the model as context.
 
-That changes the system from **"answer from memory"** to **"answer using evidence."** In practice, that is what makes RAG useful for internal knowledge, technical documentation, policies, runbooks, and other information that changes over time.
+That shifts the system from answering mainly from **model memory** to answering with **retrieved evidence in context**. That matters because models can otherwise fill gaps with plausible but unavailable or incorrect details. In practice, that is what makes RAG useful for internal knowledge, technical documentation, policies, runbooks, and other information that changes over time.
 
 ## Why RAG Is Needed
 
