@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="750" height="300" viewBox="0 0 750 300" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="24" y1="24" x2="726" y2="276" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8FAFC"/>
+      <stop offset="1" stop-color="#E0F2FE"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="54" y1="54" x2="696" y2="246" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity="0.96"/>
+      <stop offset="1" stop-color="#F8FAFC" stop-opacity="0.92"/>
+    </linearGradient>
+  </defs>
+  <rect width="750" height="300" rx="28" fill="#F8FAFC"/>
+  <rect x="24" y="24" width="702" height="252" rx="28" fill="url(#bg)" stroke="#BFDBFE"/>
+  <circle cx="88" cy="72" r="30" fill="#DBEAFE"/>
+  <circle cx="661" cy="226" r="40" fill="#CCFBF1"/>
+  <rect x="598" y="40" width="92" height="34" rx="17" fill="#0F172A"/>
+  <text x="644" y="61" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#F8FAFC">AWS</text>
+  <rect x="54" y="54" width="642" height="192" rx="24" fill="url(#panel)" stroke="#CBD5E1"/>
+
+  <text x="375" y="88" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#0F172A">Basic RAG Pipeline</text>
+  <text x="375" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#475569">From raw documents to a grounded answer</text>
+
+  <rect x="78" y="138" width="88" height="60" rx="16" fill="#ECFEFF" stroke="#0F766E" stroke-width="2"/>
+  <text x="122" y="161" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#115E59">Documents</text>
+  <text x="122" y="179" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#115E59">and Ingestion</text>
+
+  <path d="M166 168H188" stroke="#0F172A" stroke-width="3" stroke-linecap="round"/>
+  <path d="M180 160L188 168L180 176" stroke="#0F172A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="198" y="138" width="88" height="60" rx="16" fill="#EFF6FF" stroke="#2563EB" stroke-width="2"/>
+  <text x="242" y="161" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#1D4ED8">Chunking</text>
+  <text x="242" y="179" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#1D4ED8">strategy</text>
+
+  <path d="M286 168H308" stroke="#0F172A" stroke-width="3" stroke-linecap="round"/>
+  <path d="M300 160L308 168L300 176" stroke="#0F172A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="318" y="138" width="88" height="60" rx="16" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
+  <text x="362" y="161" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#B45309">Embeddings</text>
+  <text x="362" y="179" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#B45309">and storage</text>
+
+  <path d="M406 168H428" stroke="#0F172A" stroke-width="3" stroke-linecap="round"/>
+  <path d="M420 160L428 168L420 176" stroke="#0F172A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="438" y="138" width="88" height="60" rx="16" fill="#F3E8FF" stroke="#7C3AED" stroke-width="2"/>
+  <text x="482" y="161" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#6D28D9">Retrieve</text>
+  <text x="482" y="179" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#6D28D9">and rerank</text>
+
+  <path d="M526 168H548" stroke="#0F172A" stroke-width="3" stroke-linecap="round"/>
+  <path d="M540 160L548 168L540 176" stroke="#0F172A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="558" y="138" width="112" height="60" rx="16" fill="#FFE4E6" stroke="#E11D48" stroke-width="2"/>
+  <text x="614" y="161" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#BE123C">Context and</text>
+  <text x="614" y="179" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#BE123C">answer generation</text>
+
+  <text x="122" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#475569">source quality</text>
+  <text x="242" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#475569">unit design</text>
+  <text x="362" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#475569">vector search</text>
+  <text x="482" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#475569">relevance tuning</text>
+  <text x="614" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#475569">grounded output</text>
+</svg>
