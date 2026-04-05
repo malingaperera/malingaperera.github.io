@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="750" height="300" viewBox="0 0 750 300" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="24" y1="24" x2="726" y2="276" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8FAFC"/>
+      <stop offset="1" stop-color="#E0F2FE"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="68" y1="58" x2="690" y2="250" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#F8FAFC" stop-opacity="0.9"/>
+    </linearGradient>
+  </defs>
+  <rect width="750" height="300" rx="28" fill="#F8FAFC"/>
+  <rect x="24" y="24" width="702" height="252" rx="28" fill="url(#bg)" stroke="#BFDBFE"/>
+  <circle cx="95" cy="72" r="32" fill="#DBEAFE"/>
+  <circle cx="655" cy="224" r="44" fill="#CCFBF1"/>
+  <rect x="598" y="40" width="92" height="34" rx="17" fill="#0F172A"/>
+  <text x="644" y="61" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#F8FAFC">AWS</text>
+  <rect x="54" y="46" width="642" height="208" rx="24" fill="url(#panel)" stroke="#CBD5E1"/>
+
+  <text x="76" y="88" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#0F172A">Documents</text>
+  <rect x="78" y="112" width="84" height="96" rx="14" fill="#FFFFFF" stroke="#94A3B8"/>
+  <rect x="94" y="96" width="84" height="96" rx="14" fill="#F8FAFC" stroke="#94A3B8"/>
+  <rect x="110" y="80" width="84" height="96" rx="14" fill="#EFF6FF" stroke="#2563EB" stroke-width="2"/>
+  <line x1="126" y1="106" x2="178" y2="106" stroke="#93C5FD" stroke-width="4" stroke-linecap="round"/>
+  <line x1="126" y1="122" x2="170" y2="122" stroke="#93C5FD" stroke-width="4" stroke-linecap="round"/>
+  <line x1="126" y1="138" x2="176" y2="138" stroke="#93C5FD" stroke-width="4" stroke-linecap="round"/>
+
+  <path d="M210 128H270" stroke="#0F172A" stroke-width="3" stroke-linecap="round"/>
+  <path d="M262 120L270 128L262 136" stroke="#0F172A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M210 182H270" stroke="#0F172A" stroke-width="3" stroke-linecap="round"/>
+  <path d="M262 174L270 182L262 190" stroke="#0F172A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="282" y="80" width="110" height="56" rx="16" fill="#ECFEFF" stroke="#0F766E" stroke-width="2"/>
+  <text x="337" y="114" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#115E59">Chunk</text>
+  <rect x="282" y="154" width="110" height="56" rx="16" fill="#EFF6FF" stroke="#2563EB" stroke-width="2"/>
+  <text x="337" y="188" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#1D4ED8">Retrieve</text>
+
+  <path d="M406 146H470" stroke="#0F172A" stroke-width="3" stroke-linecap="round"/>
+  <path d="M462 138L470 146L462 154" stroke="#0F172A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="484" y="80" width="112" height="130" rx="20" fill="#FFF7ED" stroke="#F59E0B" stroke-width="2"/>
+  <text x="540" y="112" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#B45309">Agent</text>
+  <circle cx="540" cy="150" r="24" fill="#FED7AA"/>
+  <path d="M540 132V150L553 158" stroke="#9A3412" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="540" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#9A3412">Decide</text>
+  <text x="540" y="212" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#9A3412">Next Step</text>
+
+  <path d="M612 146H650" stroke="#0F172A" stroke-width="3" stroke-linecap="round"/>
+  <path d="M642 138L650 146L642 154" stroke="#0F172A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <path d="M658 94C658 83 667 74 678 74H690C709 74 724 89 724 108C724 127 709 142 690 142H682L664 158V142C653 141 644 132 644 121C644 109 651 100 658 94Z" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+  <text x="684" y="107" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#1D4ED8">Answer</text>
+  <text x="684" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#1D4ED8">grounded</text>
+</svg>
