@@ -38,7 +38,7 @@ This post answers five practical questions:
 4. How should the ingestion flow be designed?
 5. How do you detect ingestion problems early?
 
-If you want the short version first, jump to [A Good Default for the Running Example](#a-good-default-for-the-running-example).
+If you want the short version first, jump to [A Good Default](#a-good-default).
 
 ## Start With What and Why, Not Scale
 
