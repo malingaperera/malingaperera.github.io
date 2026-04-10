@@ -2,46 +2,70 @@
   <defs>
     <linearGradient id="bg" x1="24" y1="24" x2="726" y2="276" gradientUnits="userSpaceOnUse">
       <stop stop-color="#F8FAFC"/>
-      <stop offset="1" stop-color="#ECFCCB"/>
+      <stop offset="1" stop-color="#ECFEFF"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="58" y1="48" x2="692" y2="252" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity="0.96"/>
+      <stop offset="1" stop-color="#F8FAFC" stop-opacity="0.92"/>
     </linearGradient>
   </defs>
   <rect width="750" height="300" rx="28" fill="#F8FAFC"/>
-  <rect x="24" y="24" width="702" height="252" rx="28" fill="url(#bg)" stroke="#C7D2FE"/>
-  <rect x="54" y="46" width="642" height="208" rx="24" fill="#FFFFFF" fill-opacity="0.88" stroke="#CBD5E1"/>
-  <rect x="598" y="40" width="92" height="34" rx="17" fill="#0F172A"/>
-  <text x="644" y="61" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#F8FAFC">AWS</text>
+  <rect x="24" y="24" width="702" height="252" rx="28" fill="url(#bg)" stroke="#BFDBFE"/>
+  <circle cx="96" cy="72" r="30" fill="#DBEAFE"/>
+  <circle cx="648" cy="228" r="40" fill="#CCFBF1"/>
+  <rect x="600" y="36" width="90" height="34" rx="17" fill="#0F172A"/>
+  <text x="645" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#F8FAFC">AWS</text>
+  <rect x="54" y="46" width="642" height="208" rx="24" fill="url(#panel)" stroke="#CBD5E1"/>
 
-  <text x="76" y="84" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#0F172A">Sources</text>
-  <rect x="78" y="100" width="96" height="46" rx="12" fill="#EFF6FF" stroke="#2563EB" stroke-width="2"/>
-  <text x="126" y="128" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#1D4ED8">Runbooks</text>
-  <rect x="78" y="154" width="96" height="46" rx="12" fill="#ECFEFF" stroke="#0F766E" stroke-width="2"/>
-  <text x="126" y="182" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#115E59">API Docs</text>
-  <path d="M90 216H162L150 234H102L90 216Z" fill="#FFF7ED" stroke="#F59E0B" stroke-width="2"/>
-  <path d="M96 214V206C96 198 110 192 126 192C142 192 156 198 156 206V214" fill="#FFEDD5" stroke="#F59E0B" stroke-width="2"/>
-  <text x="126" y="222" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#B45309">S3</text>
+  <text x="92" y="82" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#0F172A">Questions</text>
+  <circle cx="88" cy="112" r="12" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+  <text x="88" y="116" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#1D4ED8">1</text>
+  <text x="108" y="116" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#1E293B">invoice events</text>
+  <circle cx="88" cy="140" r="12" fill="#CCFBF1" stroke="#0F766E" stroke-width="2"/>
+  <text x="88" y="144" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#115E59">2</text>
+  <text x="108" y="144" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#1E293B">payment retries</text>
+  <circle cx="88" cy="168" r="12" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
+  <text x="88" y="172" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#B45309">3</text>
+  <text x="108" y="172" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#1E293B">secret rotation</text>
+  <circle cx="88" cy="196" r="12" fill="#FCE7F3" stroke="#DB2777" stroke-width="2"/>
+  <text x="88" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#9D174D">4</text>
+  <text x="108" y="200" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#1E293B">failure flow</text>
 
-  <path d="M192 150H272" stroke="#0F172A" stroke-width="3" stroke-linecap="round"/>
-  <path d="M264 142L272 150L264 158" stroke="#0F172A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M198 150H242" stroke="#0F172A" stroke-width="3" stroke-linecap="round"/>
+  <path d="M234 142L242 150L234 158" stroke="#0F172A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
 
-  <rect x="286" y="82" width="184" height="136" rx="22" fill="#F8FAFC" stroke="#94A3B8" stroke-width="2"/>
-  <text x="378" y="112" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#0F172A">Ingestion Flow</text>
-  <rect x="312" y="128" width="132" height="26" rx="13" fill="#DBEAFE"/>
-  <text x="378" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#1D4ED8">extract</text>
-  <rect x="312" y="160" width="132" height="26" rx="13" fill="#CCFBF1"/>
-  <text x="378" y="177" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#115E59">normalize</text>
-  <rect x="312" y="192" width="132" height="26" rx="13" fill="#FEF3C7"/>
-  <text x="378" y="209" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#B45309">version</text>
+  <text x="258" y="82" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#0F172A">Documents</text>
+  <rect x="246" y="96" width="116" height="34" rx="14" fill="#EFF6FF" stroke="#2563EB" stroke-width="2"/>
+  <text x="304" y="118" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#1D4ED8">runbooks</text>
+  <rect x="246" y="138" width="116" height="34" rx="14" fill="#ECFEFF" stroke="#0F766E" stroke-width="2"/>
+  <text x="304" y="160" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#115E59">API docs</text>
+  <rect x="246" y="180" width="116" height="34" rx="14" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
+  <text x="304" y="202" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#B45309">incident reviews</text>
 
-  <path d="M486 150H546" stroke="#0F172A" stroke-width="3" stroke-linecap="round"/>
-  <path d="M538 142L546 150L538 158" stroke="#0F172A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M372 150H414" stroke="#0F172A" stroke-width="3" stroke-linecap="round"/>
+  <path d="M406 142L414 150L406 158" stroke="#0F172A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
 
-  <text x="566" y="84" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#0F172A">Metadata</text>
-  <rect x="562" y="100" width="104" height="32" rx="16" fill="#EFF6FF" stroke="#2563EB"/>
-  <text x="614" y="121" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#1D4ED8">service</text>
-  <rect x="574" y="138" width="104" height="32" rx="16" fill="#ECFEFF" stroke="#0F766E"/>
-  <text x="626" y="159" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#115E59">document type</text>
-  <rect x="554" y="176" width="104" height="32" rx="16" fill="#FEF3C7" stroke="#F59E0B"/>
-  <text x="606" y="197" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#B45309">owner</text>
-  <rect x="572" y="214" width="104" height="32" rx="16" fill="#FCE7F3" stroke="#DB2777"/>
-  <text x="624" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#9D174D">permissions</text>
+  <text x="418" y="82" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#0F172A">S3 Prefixes</text>
+  <path d="M438 106H538L526 126H450L438 106Z" fill="#FFF7ED" stroke="#F59E0B" stroke-width="2"/>
+  <path d="M444 104V96C444 88 458 82 488 82C518 82 532 88 532 96V104" fill="#FFEDD5" stroke="#F59E0B" stroke-width="2"/>
+  <text x="488" y="113" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#B45309">S3</text>
+  <rect x="438" y="136" width="100" height="26" rx="13" fill="#DBEAFE"/>
+  <text x="488" y="153" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#1D4ED8">raw/</text>
+  <rect x="438" y="168" width="100" height="26" rx="13" fill="#CCFBF1"/>
+  <text x="488" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#115E59">processed/</text>
+  <rect x="438" y="200" width="100" height="26" rx="13" fill="#FEF3C7"/>
+  <text x="488" y="217" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#B45309">chunked/</text>
+
+  <path d="M548 150H586" stroke="#0F172A" stroke-width="3" stroke-linecap="round"/>
+  <path d="M578 142L586 150L578 158" stroke="#0F172A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <text x="592" y="82" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#0F172A">Ingestion</text>
+  <rect x="590" y="96" width="86" height="28" rx="14" fill="#EFF6FF" stroke="#2563EB"/>
+  <text x="633" y="114" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#1D4ED8">extract</text>
+  <rect x="590" y="130" width="86" height="28" rx="14" fill="#ECFEFF" stroke="#0F766E"/>
+  <text x="633" y="148" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#115E59">normalize</text>
+  <rect x="590" y="164" width="86" height="28" rx="14" fill="#FCE7F3" stroke="#DB2777"/>
+  <text x="633" y="182" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#9D174D">metadata</text>
+  <rect x="590" y="198" width="86" height="28" rx="14" fill="#EDE9FE" stroke="#7C3AED"/>
+  <text x="633" y="216" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#6D28D9">versions</text>
 </svg>
