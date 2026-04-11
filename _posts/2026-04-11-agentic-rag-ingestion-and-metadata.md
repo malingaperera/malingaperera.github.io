@@ -130,7 +130,7 @@ To keep the ingestion pipeline clean and modular, we organize the S3 bucket with
 
 - `raw/`: This prefix holds the original, unprocessed source documents. These are the raw files as they come from source systems, before any extraction or normalization. This is the landing zone for incoming knowledge that still needs processing. It is fine to organize this by domain or source system, for example `raw/payments/`, `raw/wiki/`, or `raw/confluence/`. If you directly write formatted and processed data, you may not need this prefix.
 
-- `processed/`: This prefix holds extracted, normalised, and formatted documents, ready for chunking and indexing. Inside this prefix, group files first by the chunking strategy you plan to use, for example `processed/hierarchical/` and `processed/semantic/`. You can still keep domain folders under those strategy folders, such as `processed/hierarchical/payments/` or `processed/semantic/shared/`.
+- `processed/`: This prefix holds extracted, normalised, and formatted documents, ready for chunking and indexing. Inside this prefix, group files first by the chunking strategy you plan to use, for example `processed/hierarchical/` and `processed/semantic/`. Do not worry if those terms are not clear yet; we will unpack chunking in the next post. You can still keep domain folders under those strategy folders, such as `processed/hierarchical/payments/` or `processed/semantic/shared/`.
 
 - `chunked/`: This prefix is reserved for documents that you have manually chunked or deliberately prepared so Bedrock should not chunk them again. If you use this path, organize it by processing style too, for example `chunked/no-chunking/` or `chunked/custom/`. Later, you would connect those prefixes with the `No chunking` option.
 
@@ -236,7 +236,7 @@ If you do not want to read the whole article before making progress, these are t
 
 - Documents to index: start by creating a gold set of questions, then pick the document groups that answer those questions. If you have multiple options, prefer authoritative documents
 - Data store: Amazon S3 as the data source and staging layer
-- Data source organization: keep three prefixes, `raw/`, `processed/`, and `chunked/`, then group `processed/` and `chunked/` further by chunking strategy
+- Data source organization: keep three prefixes, `raw/`, `processed/`, and `chunked/`. Group `processed/` and `chunked/` further by chunking strategy; we will look at those strategies in the next post.
 - Ingestion flow: prefer docs-as-code when you can, decide on which document classes need event driven updates vs bulk
 - Issue detection: watch for duplicates, stale content, broken extraction, missing metadata, and mixed-authority documents early
 
