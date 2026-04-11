@@ -267,6 +267,14 @@ The sample files live under the same `processed/` strategy structure used in the
 - `processed/semantic/shared/webhook-onboarding-guide.md`
 - `processed/semantic/shared/engineering-onboarding.md`
 
+That S3 layout should look like this:
+
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/images/2026-04-11-agentic-rag-ingestion-and-metadata/s3-file-organisation.png" class="img-fluid rounded z-depth-1 mx-auto d-block" %}
+    </div>
+</div>
+
 If you want to inspect the files before uploading them, use these links:
 
 - [payment-retry-runbook.md]({{ '/assets/files/agentic-rag/sample-data/processed/hierarchical/payments/payment-retry-runbook.md' | relative_url }})
