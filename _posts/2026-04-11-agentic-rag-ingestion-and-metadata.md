@@ -126,13 +126,15 @@ For the AWS engineering assistant example, S3 is therefore "good enough" in the 
 
 ## Data Source Organisation
 
-To keep the ingestion pipeline clean and modular, we organize the S3 bucket with a clear prefix hierarchy:
+To keep the ingestion pipeline clean and modular, we organize the S3 bucket with a clear prefix hierarchy. The important detail is that the prefixes do not all need to follow the same internal structure. `raw/` can be organized by source system or domain, while `processed/` and `chunked/` should be organized by the chunking strategy you plan to apply.
 
-- `raw/`: This prefix holds the original, unprocessed source documents. These are the raw files as they come from source systems, before any extraction or normalization. This is the landing zone for all incoming knowledge. If you directly write formatted and processed data, you may not need this prefix.
+- `raw/`: This prefix holds the original, unprocessed source documents. These are the raw files as they come from source systems, before any extraction or normalization. This is the landing zone for incoming knowledge that still needs processing. It is fine to organize this by domain or source system, for example `raw/payments/`, `raw/wiki/`, or `raw/confluence/`. If you directly write formatted and processed data, you may not need this prefix.
 
-- `processed/`: This prefix holds extracted, normalised, and formatted documents, ready for chunking and indexing. It serves as the final input layer for Bedrock Knowledge Bases.
+- `processed/`: This prefix holds extracted, normalised, and formatted documents, ready for chunking and indexing. Inside this prefix, group files first by the chunking strategy you plan to use, for example `processed/hierarchical/` and `processed/semantic/`. You can still keep domain folders under those strategy folders, such as `processed/hierarchical/payments/` or `processed/semantic/shared/`.
 
-- `chunked/`: This prefix is reserved for processed and chunked output, where processed documents have been split into chunks or does not need chunking and ready for indexing. If you're not planning to use custom chunking solutions (i.e. you use native Bedrock chunking) or don't have any data that does not need chunking, you won't need this prefix. It serves as the final input layer for Bedrock Knowledge Bases which skips chunking (don't worry too much about this as will explore chunking in next post).
+- `chunked/`: This prefix is reserved for documents that you have manually chunked or deliberately prepared so Bedrock should not chunk them again. If you use this path, organize it by processing style too, for example `chunked/no-chunking/` or `chunked/custom/`. Later, you would connect those prefixes with the `No chunking` option.
+
+The reason to think about this early is that each Bedrock Knowledge Bases data source has its own chunking configuration, and the [AWS General Reference for Amazon Bedrock quotas](https://docs.aws.amazon.com/general/latest/gr/bedrock.html) currently lists `5` data sources per knowledge base. If two document groups need the same chunking behavior, group them under the same strategy prefix. If they need different chunking behavior, separate them before you create the knowledge base.
 
 ## Ingestion Flow Design Decisions
 
@@ -140,11 +142,11 @@ We've covered what documents we need and how they'll be organized in the data st
 
 Here we will discuss a few ingestion flows based on how documents enter the system and what processing they require:
 
-- **Raw documents needing full processing**: These land in the `raw/` prefix and require extraction, normalization, and structuring before chunking. The ingestion pipeline processes them and outputs cleaned versions to `processed/`. For example, a PDF runbook from the payments service might arrive in `raw/payments/payment-runbook.pdf`, get converted to structured Markdown with preserved headings and code blocks, then saved to `processed/payments/payment-runbook.md`.
+- **Raw documents needing full processing**: These land in the `raw/` prefix and require extraction, normalization, and structuring before chunking. The ingestion pipeline processes them and outputs cleaned versions to the right strategy prefix under `processed/`. For example, a PDF runbook from the payments service might arrive in `raw/payments/payment-runbook.pdf`, get converted to structured Markdown with preserved headings and code blocks, then saved to `processed/hierarchical/payments/payment-runbook.md`.
 
-- **Pre-processed documents**: These are already clean and structured, so they land directly in the `processed/` prefix, skipping extraction and normalization. For example, a well-formatted Markdown onboarding guide for webhooks might be written directly to `processed/webhooks/webhook-onboarding.md` if it comes from a docs-as-code system.
+- **Pre-processed documents**: These are already clean and structured, so they land directly under the appropriate `processed/` strategy prefix, skipping extraction and normalization. For example, a well-formatted Markdown onboarding guide might be written directly to `processed/semantic/shared/webhook-onboarding.md` if it comes from a docs-as-code system and you plan to use semantic chunking for narrative documents.
 
-- **Documents needing custom chunking or no chunking**: These require specialized splitting or are already optimally sized, landing in the `chunked/` prefix. For example, a short, self-contained incident review for invoices might go to `chunked/invoices/incident-review.md` if it doesn't need further division, or a long platform overview might be pre-chunked into logical sections before saving to `chunked/shared/platform-overview/`.
+- **Documents needing custom chunking or no chunking**: These require specialized splitting or are already optimally sized, landing in the `chunked/` prefix. For example, a short, self-contained incident review for invoices might go to `chunked/no-chunking/invoices/incident-review.md` if it doesn't need further division, or a long platform overview might be pre-chunked into logical sections before saving to `chunked/custom/shared/platform-overview/`.
 
 At a minimum, the pipeline needs to solve the following problems:
 
@@ -152,7 +154,7 @@ At a minimum, the pipeline needs to solve the following problems:
 2. How to extract usable text?
 3. How to normalize structure?
 4. How to uncover and attach metadata? (in our case metadata will become a sidecar file)
-5. Writing cleaned output to the appropriate prefix (processed/ or chunked/)
+5. Writing cleaned output to the appropriate strategy prefix under `processed/` or `chunked/`
 
 For most systems, change identification, extraction, and normalization depend on the data, and I will not go into implementation details. But we will discuss some important design decisions you have to make.
 
@@ -234,7 +236,7 @@ If you do not want to read the whole article before making progress, these are t
 
 - Documents to index: start by creating a gold set of questions, then pick the document groups that answer those questions. If you have multiple options, prefer authoritative documents
 - Data store: Amazon S3 as the data source and staging layer
-- Data source organization: keep three prefixes, `raw/`, `processed/`, and `chunked/`
+- Data source organization: keep three prefixes, `raw/`, `processed/`, and `chunked/`, then group `processed/` and `chunked/` further by chunking strategy
 - Ingestion flow: prefer docs-as-code when you can, decide on which document classes need event driven updates vs bulk
 - Issue detection: watch for duplicates, stale content, broken extraction, missing metadata, and mixed-authority documents early
 
@@ -254,27 +256,27 @@ Download [agentic-rag-sample-data.zip]({{ '/assets/files/agentic-rag/agentic-rag
 
 I will not go into processing raw files (because that is highly data- and implementation-specific) or custom chunking techniques outside what is natively available in Bedrock. So you will not need the `raw/` and `chunked/` prefixes to follow this example. If you want to extend the lab, feel free to turn it into a full example by placing raw files (PDFs, HTML, etc.) into `raw/` and data that does not need chunking into `chunked/`.
 
-The sample files live under the same `processed/` structure used in the article:
+The sample files live under the same `processed/` strategy structure used in the article:
 
-- `processed/payments/payment-retry-runbook.md`
-- `processed/payments/payment-failure-handling.md`
-- `processed/invoices/invoice-events-overview.md`
-- `processed/webhooks/webhook-secret-rotation.md`
-- `processed/shared/customer-notification-flow.md`
-- `processed/shared/eventing-platform-overview.md`
-- `processed/shared/webhook-onboarding-guide.md`
-- `processed/shared/engineering-onboarding.md`
+- `processed/hierarchical/payments/payment-retry-runbook.md`
+- `processed/hierarchical/payments/payment-failure-handling.md`
+- `processed/hierarchical/invoices/invoice-events-overview.md`
+- `processed/hierarchical/webhooks/webhook-secret-rotation.md`
+- `processed/semantic/shared/customer-notification-flow.md`
+- `processed/semantic/shared/eventing-platform-overview.md`
+- `processed/semantic/shared/webhook-onboarding-guide.md`
+- `processed/semantic/shared/engineering-onboarding.md`
 
 If you want to inspect the files before uploading them, use these links:
 
-- [payment-retry-runbook.md]({{ '/assets/files/agentic-rag/sample-data/processed/payments/payment-retry-runbook.md' | relative_url }})
-- [payment-failure-handling.md]({{ '/assets/files/agentic-rag/sample-data/processed/payments/payment-failure-handling.md' | relative_url }})
-- [invoice-events-overview.md]({{ '/assets/files/agentic-rag/sample-data/processed/invoices/invoice-events-overview.md' | relative_url }})
-- [webhook-secret-rotation.md]({{ '/assets/files/agentic-rag/sample-data/processed/webhooks/webhook-secret-rotation.md' | relative_url }})
-- [customer-notification-flow.md]({{ '/assets/files/agentic-rag/sample-data/processed/shared/customer-notification-flow.md' | relative_url }})
-- [eventing-platform-overview.md]({{ '/assets/files/agentic-rag/sample-data/processed/shared/eventing-platform-overview.md' | relative_url }})
-- [webhook-onboarding-guide.md]({{ '/assets/files/agentic-rag/sample-data/processed/shared/webhook-onboarding-guide.md' | relative_url }})
-- [engineering-onboarding.md]({{ '/assets/files/agentic-rag/sample-data/processed/shared/engineering-onboarding.md' | relative_url }})
+- [payment-retry-runbook.md]({{ '/assets/files/agentic-rag/sample-data/processed/hierarchical/payments/payment-retry-runbook.md' | relative_url }})
+- [payment-failure-handling.md]({{ '/assets/files/agentic-rag/sample-data/processed/hierarchical/payments/payment-failure-handling.md' | relative_url }})
+- [invoice-events-overview.md]({{ '/assets/files/agentic-rag/sample-data/processed/hierarchical/invoices/invoice-events-overview.md' | relative_url }})
+- [webhook-secret-rotation.md]({{ '/assets/files/agentic-rag/sample-data/processed/hierarchical/webhooks/webhook-secret-rotation.md' | relative_url }})
+- [customer-notification-flow.md]({{ '/assets/files/agentic-rag/sample-data/processed/semantic/shared/customer-notification-flow.md' | relative_url }})
+- [eventing-platform-overview.md]({{ '/assets/files/agentic-rag/sample-data/processed/semantic/shared/eventing-platform-overview.md' | relative_url }})
+- [webhook-onboarding-guide.md]({{ '/assets/files/agentic-rag/sample-data/processed/semantic/shared/webhook-onboarding-guide.md' | relative_url }})
+- [engineering-onboarding.md]({{ '/assets/files/agentic-rag/sample-data/processed/semantic/shared/engineering-onboarding.md' | relative_url }})
 
 The dataset includes both direct-answer documents and near-miss documents on purpose. For example:
 
@@ -293,6 +295,6 @@ The markdown files should be intentionally well structured. That means:
 
 That matters because in the next post we will talk about chunking, and badly structured source files make chunking decisions much harder to reason about.
 
-If you are uploading the files manually through the S3 console, keep the folder layout exactly as shown above. The later Bedrock Knowledge Base steps use prefixes like `processed/payments/` and `processed/shared/`, so the path structure matters.
+If you are uploading the files manually through the S3 console, keep the folder layout exactly as shown above. The later Bedrock Knowledge Base steps use prefixes like `processed/hierarchical/` and `processed/semantic/`, so the path structure matters.
 
 In the next post, I will move one step forward in the pipeline and look at chunking: how large each unit should be, where boundaries should fall, and why bad chunking can make even a good embedding model look weak.

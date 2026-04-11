@@ -4,10 +4,13 @@ This folder contains the sample source documents used across posts 2 to 7 of the
 
 Upload the `processed/` folder to S3 so the object keys keep the same prefix structure:
 
-- `processed/payments/...`
-- `processed/invoices/...`
-- `processed/webhooks/...`
-- `processed/shared/...`
+- `processed/hierarchical/...`
+- `processed/semantic/...`
+
+The sample data is grouped by the chunking strategy used later in the series:
+
+- `processed/hierarchical/` contains structured operational documents such as runbooks, invoice event notes, and secret-rotation guidance.
+- `processed/semantic/` contains more narrative documents such as flow notes, platform overviews, and onboarding material.
 
 The dataset also includes `.metadata.json` sidecar files next to each markdown file. Those are used later in the retrieval-design post when testing metadata filters in Bedrock Knowledge Bases.
 
