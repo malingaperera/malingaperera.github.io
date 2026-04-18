@@ -149,32 +149,30 @@ When this happens, **changing the embedding model is not always the right next s
 
 ## A Practical Default
 
+These are not final values. They are a practical starting point to get you moving, run a few retrieval tests, and then adjust based on what the returned chunks look like.
+
 For most teams, I would start with:
 
-- structure-aware chunking where source structure is available
-- `400-800` token chunks as the first practical range for general documentation
-- `200-500` token chunks for API references, command references, short runbook steps, and other precise operational material
-- `700-1,200` token chunks for architecture notes, incident reviews, and narrative documents where surrounding rationale matters
+- structure-aware chunking where source structure is available. In Bedrock Knowledge Bases, this usually means starting with `Hierarchical chunking` for structured documents such as runbooks, procedures, and documents with useful headings
+- chunk sizes in the `400-800` token range for general documentation, `200-500` tokens for precise operational or API material, and `700-1,200` tokens for narrative documents where surrounding rationale matters
 - `10-15%` overlap for fixed-size chunking, increasing only when useful context is being cut at boundaries
 - chunking rules that vary by document type when the corpus justifies it
 
+If you are not sure whether to start at the lower or higher end of a range, use the document shape as the guide. Start lower for lookup-heavy content where users ask narrow questions, such as commands, endpoints, status codes, and short procedures. Start higher for explanatory content where the answer depends on surrounding rationale, such as architecture notes, incident reviews, and design tradeoffs.
+
 I would avoid:
 
-- one global rule for every document class
+- designing the system assuming one global chunking rule will be enough for every document class
 - aggressive overlap by default
-- optimizing solely for token uniformity
+- forcing every chunk toward the same token count when headings, procedures, or section boundaries would produce better retrieval units
 
-For the sample AWS engineering assistant, my starting point would be:
+### Tune by Looking at Retrieved Chunks
 
-- `processed/hierarchical/`: use hierarchical chunking for runbooks and operational docs so retrieval can find focused child chunks while answer generation can still see the larger parent context
-- `processed/semantic/`: use semantic chunking for narrative shared documents where meaning-based boundaries are more useful than fixed token windows
-- `chunked/custom/`: reserve this for manual experiments only after the managed Bedrock path is working
+After starting with these defaults, do not tune blindly. Run a few representative questions and inspect the returned chunks directly.
 
 **The simplest useful question to ask is this: when a chunk is retrieved on its own, does it still make sense?**
 
-If the answer is often no, the chunking policy needs work.
-
-Then tune from what you see in retrieval results:
+If the answer is often no, the chunking policy needs work. Then tune from what you see in retrieval results:
 
 - If the right document is found but the answer lacks the surrounding warning or prerequisite, increase chunk size or use parent-child context.
 - If the retrieved chunk contains too many unrelated ideas, reduce chunk size or split by structure.
@@ -192,7 +190,7 @@ This lab has two paths:
 
 **For the rest of this blog series, I will use the Bedrock Knowledge Bases path** because it keeps the setup smaller and lets us focus on the bigger design questions step by step.
 
-That said, manual chunking is still worth exploring. It gives you a better feel for what chunking is actually doing and it becomes important when you want tighter control than the managed options give you. My recommendation is simple: try the Bedrock path first, then come back and experiment with manual chunking after you have seen the easier option working.
+That said, manual chunking is still worth exploring. It gives you a better feel for what chunking is actually doing, and it becomes important when you want tighter control than the managed options give you. There is also a practical AWS reason: because a Bedrock knowledge base has a limited number of data sources, you may not always be able to create a separate data source for every chunking variation you want. In those cases, manually chunking some document groups and placing them under `chunked/` can give you more control without spending another managed data source. My recommendation is simple: try the Bedrock path first, then come back and experiment with manual chunking after you have seen the easier option working.
 
 ### Lab Setup From the Previous Post
 
