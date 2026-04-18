@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="750" height="300" viewBox="0 0 750 300" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="24" y1="24" x2="726" y2="276" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8FAFC"/>
+      <stop offset="1" stop-color="#E0E7FF"/>
+    </linearGradient>
+  </defs>
+  <rect width="750" height="300" rx="28" fill="#F8FAFC"/>
+  <rect x="24" y="24" width="702" height="252" rx="28" fill="url(#bg)" stroke="#BFDBFE"/>
+  <rect x="54" y="46" width="642" height="208" rx="24" fill="#FFFFFF" fill-opacity="0.9" stroke="#CBD5E1"/>
+  <rect x="598" y="40" width="92" height="34" rx="17" fill="#0F172A"/>
+  <text x="644" y="61" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#F8FAFC">AWS</text>
+
+  <text x="80" y="84" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#0F172A">Document</text>
+  <rect x="86" y="98" width="182" height="126" rx="18" fill="#F8FAFC" stroke="#94A3B8" stroke-width="2"/>
+  <rect x="104" y="118" width="146" height="10" rx="5" fill="#93C5FD"/>
+  <rect x="104" y="136" width="132" height="10" rx="5" fill="#BFDBFE"/>
+  <rect x="104" y="154" width="146" height="10" rx="5" fill="#93C5FD"/>
+  <rect x="104" y="172" width="120" height="10" rx="5" fill="#BFDBFE"/>
+  <rect x="104" y="190" width="136" height="10" rx="5" fill="#93C5FD"/>
+
+  <path d="M286 120H340" stroke="#0F172A" stroke-width="3" stroke-linecap="round"/>
+  <path d="M332 112L340 120L332 128" stroke="#0F172A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M286 196H340" stroke="#0F172A" stroke-width="3" stroke-linecap="round"/>
+  <path d="M332 188L340 196L332 204" stroke="#0F172A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <text x="368" y="84" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#0F172A">Chunks</text>
+  <rect x="358" y="102" width="128" height="52" rx="16" fill="#EFF6FF" stroke="#2563EB" stroke-width="2"/>
+  <text x="422" y="132" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#1D4ED8">chunk 1</text>
+  <rect x="390" y="134" width="128" height="52" rx="16" fill="#ECFEFF" fill-opacity="0.95" stroke="#0F766E" stroke-width="2"/>
+  <text x="454" y="164" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#115E59">chunk 2</text>
+  <rect x="422" y="166" width="128" height="52" rx="16" fill="#FEF3C7" fill-opacity="0.95" stroke="#F59E0B" stroke-width="2"/>
+  <text x="486" y="196" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#B45309">chunk 3</text>
+
+  <path d="M566 158H626" stroke="#0F172A" stroke-width="3" stroke-linecap="round"/>
+  <path d="M618 150L626 158L618 166" stroke="#0F172A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="636" y="92" width="46" height="126" rx="18" fill="#F8FAFC" stroke="#94A3B8" stroke-dasharray="6 6"/>
+  <rect x="646" y="106" width="26" height="24" rx="8" fill="#DBEAFE"/>
+  <rect x="646" y="142" width="26" height="24" rx="8" fill="#CCFBF1"/>
+  <rect x="646" y="178" width="26" height="24" rx="8" fill="#FEF3C7"/>
+  <text x="659" y="239" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#475569">overlap</text>
+</svg>
