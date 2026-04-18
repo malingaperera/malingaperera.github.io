@@ -42,10 +42,15 @@
 {%- endif %}
 
 {%- assign is_blog_post = false -%}
-{%- if page.url != '/blog/index.html' and page.url contains '/blog/' -%}
-    {%- unless page.url contains '/tag/' or page.url contains '/category/' -%}
-        {%- assign is_blog_post = true -%}
-    {%- endunless -%}
+{%- if page.collection == 'posts' or page.layout == 'post' -%}
+    {%- assign is_blog_post = true -%}
+{%- endif -%}
+
+{%- assign archive_types = "tag,category,year,month,day" | split: "," -%}
+{%- if page.robots -%}
+    <meta name="robots" content="{{ page.robots }}" />
+{%- elsif archive_types contains page.type -%}
+    <meta name="robots" content="noindex, follow" />
 {%- endif -%}
 
 {%- if site.serve_og_meta %}
@@ -60,6 +65,14 @@
     <meta property="og:image" content="{{ social_image | absolute_url }}" />
     {%- endif %}
     <meta property="og:locale" content="{{ site.lang }}" />
+    {% if is_blog_post -%}
+    <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}" />
+    <meta property="article:modified_time" content="{{ page.last_modified_at | default: page.date | date_to_xmlschema }}" />
+    <meta property="article:author" content="{{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}" />
+        {%- for tag in page.tags %}
+    <meta property="article:tag" content="{{ tag }}" />
+        {%- endfor %}
+    {%- endif %}
 
     <!-- Twitter card -->
     <meta name="twitter:card" content="{% if social_image %}summary_large_image{% else %}summary{% endif %}" />
@@ -220,21 +233,48 @@
     {%- endif -%}
 
     <script type="application/ld+json">
+    {%- if is_blog_post -%}
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ page.url | absolute_url }}"
+        },
+        "headline": {{ page.title | jsonify }},
+        "description": {{ page.description | default: site.description | jsonify }},
+        "url": "{{ page.url | absolute_url }}",
+        "datePublished": "{{ page.date | date_to_xmlschema }}",
+        "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+        {% if social_image -%}
+        "image": "{{ social_image | absolute_url }}",
+        {%- endif %}
+        "author": {
+            "@type": "Person",
+            "name": "{{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}"
+        },
+        "publisher": {
+            "@type": "Person",
+            "name": "{{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}"
+        }
+    }
+    {%- else -%}
     {
         "author":
         {
             "@type": "Person",
             "name": "{{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}"
         },
-        "url": "{{ page.url | prepend: site.baseurl | prepend: site.url }}",
+        "url": {{ page.url | prepend: site.baseurl | prepend: site.url | jsonify }},
         "@type": "{%- if is_blog_post -%}BlogPosting{%- else -%}WebSite{%- endif -%}",
-        "description": "{%- if page.description -%}{{ page.description }}{%- else if site.description -%}{{ site.description }}{%- endif -%}",
-        "headline": "{%- if page.title -%}{{ page.title }}{%- else -%}{{ site.title }}{%- endif -%}",
+        "description": {{ page.description | default: site.description | jsonify }},
+        "headline": {{ page.title | default: site.title | jsonify }},
         {% if sameaslinks != blank -%}
         "sameAs": {{ sameaslinks }},
         {%- endif %}
-        "name": "{{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}",
+        "name": {{ site.first_name | append: " " | append: site.middle_name | append: " " | append: site.last_name | jsonify }},
         "@context": "https://schema.org"
     }
+    {%- endif -%}
     </script>
 {%- endif %}
