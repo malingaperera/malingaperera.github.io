@@ -15,11 +15,11 @@ giscus_comments: false
     </div>
 </div>
 
-# Introduction
+## Introduction
 
 If you are searching for this you might be checking the tyre pressure for the first time and trying to use your air pump for the first time. This article target the information related to this operation. Most of these information can be found in the manual (section 8-5)
 
-# Recommended tire pressure
+## Recommended tire pressure
 
 | Type | Size | Pressure | Remarks |
 | --- | --- | --- | --- |
@@ -34,7 +34,7 @@ This information is stickered on the car body near driver side door
     </div>
 </div>
 
-# Using the Air Pump
+## Using the Air Pump
 
 1. You can find the air pump in the dicky/boot.
 

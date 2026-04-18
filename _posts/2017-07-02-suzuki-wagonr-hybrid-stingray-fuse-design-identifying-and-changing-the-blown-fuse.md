@@ -17,7 +17,7 @@ giscus_comments: false
 
 <br/>
 
-# Introduction
+## Introduction
 
 We all come across some situations where some electronic features are not working suddenly. Most of the time it relates to a blown fuse. In this article, we talk about how to identify and replace a blown fuse. When doing this, it is always recommended to have a good idea about what functionalities relate to each fuse. So mainly in this article, we will talk about Suzuki WagonR Hybrid fuse design.
 
@@ -27,7 +27,7 @@ Mainly fuses found in five places. However, we are talking about three out five 
 
 <br/>
 
-# Under the Steering Wheel
+## Under the Steering Wheel
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
@@ -41,7 +41,7 @@ Mainly fuses found in five places. However, we are talking about three out five 
 </div>
 <br/>
 
-## Fuse design
+### Fuse design
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
@@ -50,12 +50,12 @@ Mainly fuses found in five places. However, we are talking about three out five 
 </div>
 <br/>
 
-# In the engine compartment
+## In the engine compartment
 
 Even though there are 3 places, I'm gonna talk about only 2 places which you will need in most of the time.
 
 
-## Engine compartment - Relay Box 1
+### Engine compartment - Relay Box 1
 
 <br/>
 <div class="row mt-3">
@@ -76,7 +76,7 @@ Even though there are 3 places, I'm gonna talk about only 2 places which you wil
 </div>
 <br/>
 
-### Fuse design
+#### Fuse design
 
 \
 <div class="row mt-3">
@@ -86,7 +86,7 @@ Even though there are 3 places, I'm gonna talk about only 2 places which you wil
 </div>
 <br/>
 
-## Engine compartment - Relay Box 2
+### Engine compartment - Relay Box 2
 
 
 <div class="row mt-3">
@@ -101,7 +101,7 @@ Even though there are 3 places, I'm gonna talk about only 2 places which you wil
 </div>
 <br/>
 
-### Fuse design
+#### Fuse design
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">

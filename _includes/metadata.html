@@ -35,8 +35,9 @@
         {{ title }}
     {%- endif -%}
     </title>
+    {%- assign meta_description = page.description | default: site.description | strip -%}
     <meta name="author" content="{{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}" />
-    <meta name="description" content="{%- if page.description -%}{{ page.description }}{%- else -%}{{ site.description }}{%- endif -%}" />
+    <meta name="description" content="{{ meta_description | escape }}" />
 {%- if page.keywords or site.keywords %}
     <meta name="keywords" content="{%- if page.keywords -%}{{ page.keywords }}{%- else -%}{{ site.keywords }}{%- endif -%}" />
 {%- endif %}
@@ -60,7 +61,7 @@
     <meta property="og:type" content="{%- if is_blog_post -%}article{%- else -%}website{%- endif -%}" />
     <meta property="og:title" content="{%- if page.title -%}{{ title }} | {{ page.title }}{%- else -%}{{ title }}{%- endif -%}" />
     <meta property="og:url" content="{{ page.url | prepend: site.baseurl | prepend: site.url | remove_first: 'index.html' }}" />
-    <meta property="og:description" content="{%- if page.description -%}{{ page.description }}{%- else -%}{{ site.description }}{%- endif -%}" />
+    <meta property="og:description" content="{{ meta_description | escape }}" />
     {% if social_image -%}
     <meta property="og:image" content="{{ social_image | absolute_url }}" />
     {%- endif %}
@@ -77,7 +78,7 @@
     <!-- Twitter card -->
     <meta name="twitter:card" content="{% if social_image %}summary_large_image{% else %}summary{% endif %}" />
     <meta name="twitter:title" content="{%- if page.title -%}{{ page.title }}{%- else -%}{{ title }}{%- endif -%}" />
-    <meta name="twitter:description" content="{%- if page.description -%}{{ page.description }}{%- else -%}{{ site.description }}{%- endif -%}" />
+    <meta name="twitter:description" content="{{ meta_description | escape }}" />
     {% if social_image -%}
     <meta name="twitter:image" content="{{ social_image | absolute_url }}" />
     {%- endif %}
@@ -242,7 +243,7 @@
             "@id": "{{ page.url | absolute_url }}"
         },
         "headline": {{ page.title | jsonify }},
-        "description": {{ page.description | default: site.description | jsonify }},
+        "description": {{ meta_description | jsonify }},
         "url": "{{ page.url | absolute_url }}",
         "datePublished": "{{ page.date | date_to_xmlschema }}",
         "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
@@ -267,7 +268,7 @@
         },
         "url": {{ page.url | prepend: site.baseurl | prepend: site.url | jsonify }},
         "@type": "{%- if is_blog_post -%}BlogPosting{%- else -%}WebSite{%- endif -%}",
-        "description": {{ page.description | default: site.description | jsonify }},
+        "description": {{ meta_description | jsonify }},
         "headline": {{ page.title | default: site.title | jsonify }},
         {% if sameaslinks != blank -%}
         "sameAs": {{ sameaslinks }},

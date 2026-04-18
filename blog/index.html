@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Blog
+description: Articles on databases, AWS, data systems, research, and practical software engineering.
 pagination:
   enabled: true
   collection: posts
@@ -18,12 +19,12 @@ pagination:
   {% assign blog_name_size = site.blog_name | size %}
   {% assign blog_description_size = site.blog_description | size %}
 
-  {% if blog_name_size > 0 or blog_description_size > 0 %}
   <div class="header-bar">
-    <h1>{{ site.blog_name }}</h1>
+    <h1>{% if blog_name_size > 0 %}{{ site.blog_name }}{% else %}{{ page.title }}{% endif %}</h1>
+    {% if blog_description_size > 0 %}
     <h2>{{ site.blog_description }}</h2>
+    {% endif %}
   </div>
-  {% endif %}
 
   {% if site.display_tags or site.display_categories %}
   <div class="tag-category-list">
@@ -132,7 +133,7 @@ pagination:
         {%- endif %}
       </p>
       <p class="post-tags">
-        <a href="{{ year | prepend: '/blog/' | prepend: site.baseurl}}">
+        <a href="{{ year | prepend: '/' | prepend: site.baseurl}}">
           <i class="fas fa-calendar fa-sm"></i> {{ year }} </a>
 
           {% if tags != "" %}
@@ -154,7 +155,7 @@ pagination:
 {%- if post.thumbnail -%}
     </div>
   <div class="col-sm-3">
-    <img class="card-img" src="{{post.thumbnail | relative_url}}" style="object-fit: cover; height: 90%" alt="image">
+    <img class="card-img" src="{{post.thumbnail | relative_url}}" style="object-fit: cover; height: 90%" alt="{{ post.title | escape }}">
   </div>
 </div>
 {%- endif -%}

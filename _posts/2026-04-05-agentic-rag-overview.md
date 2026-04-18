@@ -14,7 +14,7 @@ published: true
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/images/2026-04-05-agentic-rag-overview/agentic-rag-overview.svg" class="img-fluid rounded z-depth-1 mx-auto d-block" %}
+        {% include figure.html path="assets/images/2026-04-05-agentic-rag-overview/agentic-rag-overview.svg" class="img-fluid rounded z-depth-1 mx-auto d-block" alt="Agentic RAG system overview with user query, agent, retrieval, tools, and final answer" %}
     </div>
 </div>
 
@@ -44,7 +44,7 @@ At a high level, a RAG pipeline usually looks like this:
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/images/2026-04-05-agentic-rag-overview/agentic-rag-basic-stages.svg" class="img-fluid rounded z-depth-1 mx-auto d-block" %}
+        {% include figure.html path="assets/images/2026-04-05-agentic-rag-overview/agentic-rag-basic-stages.svg" class="img-fluid rounded z-depth-1 mx-auto d-block" alt="Basic stages of an agentic RAG workflow from ingestion to retrieval and response generation" %}
     </div>
 </div>
 

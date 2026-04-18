@@ -2,6 +2,7 @@
 layout: about
 title: About
 permalink: /
+description: Romesh Malinga Perera is a software engineer at Amazon Web Services and a PhD researcher in self-tuning database systems.
 subtitle: Software Engineer, Amazon Web Services | Ph.D. (UniMelb)
 
 profile:

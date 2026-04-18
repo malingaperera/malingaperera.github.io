@@ -15,13 +15,13 @@ giscus_comments: false
     </div>
 </div>
 
-# What is round-robin session and who is round-robin master
+## What is round-robin session and who is round-robin master
 
 **Round-Robin Session** has been developed by the Toastmasters in Sri Lanka. This is a warm-up session that happens just after the introduction of the role players and just before the prepared speeches. **Aim** of this session is to **improve the Speaking Skill and Listening Skill** of members and ultimately **brake the emotional barrier** and get everyone to speak.
 
 **Round Robin Master** is the person who leads this session by presenting a topic or a rolling story and handles its flow to make sure everyone gets the chance to speak up. This is highly important as this might be the only time that everyone gets the chance to speak up.
 
-# Round robin session format / structure
+## Round robin session format / structure
 
 In a normal session, (some variances can be found in a later sub-topic) everyone gets 20 seconds to talk on the topic or a rolling story given by round-robin master. However, as everything is time-boxed in a toastmasters meetings, try to keep this session under 10 minutes. It's round-robin masters duty to check the attendance count and come up with the number of seconds per person. However, do not go below 15 seconds.
 
@@ -33,7 +33,7 @@ Round-robin master will give an introduction and explain how the chance to speak
     </div>
 </div>
 
-# Round robin master role and duties
+## Round robin master role and duties
 
 Take the control from the Toastmaster with a shake-hand and optionally responding to the introduction of yourself done by the toastmaster. If there is a theme in the meeting try to align your session with the theme. You should liaise with the Toastmaster of the day beforehand and get the details of the meeting.
 
@@ -45,29 +45,29 @@ Then the round-robin master should introduce the topic. This should be short, ke
 
 Prior to leaving hand over the control back to TM (ex: saying “Over to you Toastmaster”) and shake hands.
 
-# Variations – Make it interesting
+## Variations – Make it interesting
 
 If you have done the round-robin session before or when you see that it has to be same for ages, you need to change the rules and spice up the session. Below are some ideas and variations to a different round-robin session.
 
-## Topic variations
+### Topic variations
 
-### Use of interesting topics
+#### Use of interesting topics
 
 If you are used to talk on a rolling story or a topic, topic is a place you can change. Try to be innovative in your topics. Rather than going with same boring topics like “Future plans”, “happiest moment in life” you can use topics like “What superpower you need”, “president for a day”.
 
-### Fortunately/Unfortunately
+#### Fortunately/Unfortunately
 
 This is used with a rolling story. The first speaker should start the story with either fortunately or unfortunately based on the end of the introduction by round-robin master. All speakers who start with ‘fortunately’ should end with ‘unfortunately’ and vice versa. As you can see, this removes the constraint to start with the last word as it always either fortunately or unfortunately.
 
-### Use of objects
+#### Use of objects
 
 Have an object that is unknown and ask them to **guess it** and why you brought it to toastmasters. Other than that you can show an object or a picture,  and ask others to **guess the purpose** of the object and what is been used to or what it can be used to. You can get an object and ask them to **sell it**.
 
 **As a example**: There was a image of a golf ball holder, which we didn't knew at that time. Round-ribbon master asked to guess it, and it was funny when people got it completely wrong. Pick a picture that is hard to guess like something really old or something not common.
 
-## Format variations
+### Format variations
 
-### How next speaker is selected
+#### How next speaker is selected
 
 This can be selected in many different ways. The normal way is to go by the seating order in a zig-zag manner. Other than that,
 
@@ -75,7 +75,7 @@ This can be selected in many different ways. The normal way is to go by the seat
 - Ask them to count from one and call numbers randomly. Keep a note on the numbers you called.
 - You can give the chance to the speaker to call the next person randomly. Here you have to be careful that everyone gets the chance to speak. Make sure guests are not pointed till the end.
 
-# Conclusion
+## Conclusion
 
 Always keep the aim in mind when you are doing this session, will summarize that in one sentence.
 

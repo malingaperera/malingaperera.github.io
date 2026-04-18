@@ -14,7 +14,7 @@ published: true
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/images/2026-04-18-agentic-rag-chunking-strategy/agentic-rag-chunking-strategy.svg" class="img-fluid rounded z-depth-1 mx-auto d-block" %}
+        {% include figure.html path="assets/images/2026-04-18-agentic-rag-chunking-strategy/agentic-rag-chunking-strategy.svg" class="img-fluid rounded z-depth-1 mx-auto d-block" alt="Agentic RAG chunking strategy showing document boundaries, chunk size, overlap, and retrieval context" %}
     </div>
 </div>
 

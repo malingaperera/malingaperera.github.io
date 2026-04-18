@@ -2,7 +2,7 @@
 layout: page
 permalink: /publications/
 title: Publications
-description:
+description: Research publications by Romesh Malinga Perera on database systems, self-tuning databases, and applied machine learning.
 nav: true
 nav_order: 1
 ---
