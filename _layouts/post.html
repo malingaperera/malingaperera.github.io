@@ -52,10 +52,14 @@ layout: default
   </article>
 
   {%- if page.related_publications != null and page.related_publications.size > 0 -%}
-  {% assign publications = page.related_publications | replace: ", ", "," | split: "," | join: "|" %}
+  {% assign related_publication_keys = page.related_publications | replace: ", ", "," | split: "," %}
   <h2>References</h2>
-  <div class="publications">
-    {% bibliography -f {{ site.scholar.bibliography }} -q @*[key^={{ publications }}]* %}
+  <div class="publications-list">
+    {% for publication in site.data.publications %}
+      {% if related_publication_keys contains publication.key %}
+        {% include publication.html publication=publication %}
+      {% endif %}
+    {% endfor %}
   </div>
   {%- endif %}
 

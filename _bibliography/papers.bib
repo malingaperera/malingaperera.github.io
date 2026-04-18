@@ -10,8 +10,10 @@
   number={},
   pages={360-369},
   keywords={Heuristic algorithms;Transfer learning;Neural networks;Probabilistic logic;Data models;Indexes;Servers;Data mining;Standards;Plugs;multi-armed bandits;warm-start;pretraining},
+  abstract={This paper studies warm-starting contextual bandits when rewards in pre-training and deployment share the same structure but differ by an unknown scale. It proposes a probabilistic model and a simple maximum a posteriori estimator for recalibrating warm-started bandits, gives a regret bound, and evaluates the method on synthetic, benchmark, and database index-selection tasks.},
   doi={10.1109/ICDM59182.2024.00043},
-  url={https://ieeexplore.ieee.org/abstract/document/10884226}
+  url={https://ieeexplore.ieee.org/document/10884226},
+  pdf={https://ai-db-uom.github.io/data/2024_icdm.pdf}
 }
 
 @article{10.14778/3565816.3565824,
@@ -37,7 +39,9 @@ numpages = {14}
   journal={IEEE Transactions on Knowledge and Data Engineering}, 
   title={No DBA? No Regret! Multi-Armed Bandits for Index Tuning of Analytical and HTAP Workloads With Provable Guarantees}, 
   year={2023},
-  pages={1-18},
+  volume={35},
+  number={12},
+  pages={12855-12872},
   abstract={Automating physical database design has remained a long-term interest in database research due to substantial performance gains afforded by optimised structures. Despite significant progress, a majority of today's commercial solutions are highly manual, requiring offline invocation by database administrators (DBAs). This status quo is untenable: identifying representative static workloads is no longer realistic; and physical design tools remain susceptible to the query optimiser's cost misestimates. Furthermore, modern application environments like hybrid transactional and analytical processing (HTAP) systems render analytical modelling next to impossible. We propose a self-driving approach to online index selection that does not depend on the DBA and query optimiser, and instead learns the benefits of viable structures through strategic exploration and direct performance observation. We view the problem as one of sequential decision making under uncertainty, specifically within the bandit learning setting. Multi-armed bandits balance exploration and exploitation to provably guarantee average performance that converges to policies that are optimal with perfect hindsight. Our comprehensive empirical evaluation against a state-of-the-art commercial tuning tool demonstrates up to 75% speed-up in analytical processing environments and 59% speed-up in HTAP environments. Lastly, our bandit framework outperforms a Monte Carlo tree search (MCTS)-based database optimiser, providing up to 24% speed-up.},
   doi={10.1109/TKDE.2023.3271664}}
 
@@ -79,10 +83,15 @@ numpages = {14}
 
 @article{oetomo2023cutting,
   title={Cutting to the chase with warm-start contextual bandits},
-  author={Oetomo, Bastian and Perera, R Malinga and Borovica-Gajic, Renata and Rubinstein, Benjamin IP},
+  author={Oetomo, Bastian and Perera, R. Malinga and Borovica-Gajic, Renata and Rubinstein, Benjamin I. P.},
   journal={Knowledge and Information Systems},
-  pages={1--33},
+  volume={65},
+  number={9},
+  pages={3533-3565},
   year={2023},
+  month={sep},
   abstract={Multi-armed bandits achieve excellent long-term performance in practice and sublinear cumulative regret in theory. However, a real-world limitation of bandit learning is poor performance in early rounds due to the need for exploration—a phenomenon known as the cold-start problem. While this limitation may be necessary in the general classical stochastic setting, in practice where “pre-training” data or knowledge is available, it is natural to attempt to “warm-start” bandit learners. This paper provides a theoretical treatment of warm-start contextual bandit learning, adopting Linear Thompson Sampling as a principled framework for flexibly transferring domain knowledge as might be captured by bandit learning in a prior related task, a supervised pre-trained Bayesian posterior, or domain expert knowledge. Under standard conditions, we prove a general regret bound. We then apply our warm-start algorithmic technique to other common bandit learners—the ϵ-greedy and upper-confidence bound contextual learners. An upper regret bound is then provided for LinUCB. Our suite of warm-start learners are evaluated in experiments with both artificial and real-world datasets, including a motivating task of tuning a commercial database. A comprehensive range of experimental results are presented, highlighting the effect of different hyperparameters and quantities of pre-training data.},
+  doi={10.1007/s10115-023-01861-2},
+  url={https://link.springer.com/article/10.1007/s10115-023-01861-2},
   publisher={Springer}
 }

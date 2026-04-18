@@ -1,0 +1,64 @@
+{%- assign publication = include.publication -%}
+<article class="publication-entry" id="{{ publication.id }}">
+  <h3 class="publication-title">{{ publication.title }}</h3>
+
+  {%- if publication.authors and publication.authors.size > 0 -%}
+  <p class="publication-authors">
+    {%- for author in publication.authors -%}
+      {%- if forloop.index > 1 -%}{% if forloop.last %} and {% else %}, {% endif %}{%- endif -%}
+      {%- if author.self -%}<strong>{{ author.name }}</strong>{%- else -%}{{ author.name }}{%- endif -%}
+    {%- endfor -%}
+  </p>
+  {%- endif -%}
+
+  <p class="publication-venue">
+    {%- if publication.venue -%}{{ publication.venue }}{% if publication.year %}, {% endif %}{%- endif -%}
+    {{ publication.year }}
+  </p>
+
+  {%- if publication.details and publication.details.size > 0 -%}
+  <p class="publication-details">{{ publication.details | join: " | " }}</p>
+  {%- endif -%}
+
+  {%- if publication.abstract -%}
+  <details class="publication-abstract">
+    <summary>Abstract</summary>
+    <p>{{ publication.abstract }}</p>
+  </details>
+  {%- endif -%}
+
+  {%- if publication.pdf or publication.doi or publication.url or publication.arxiv or publication.code or publication.blog or publication.website -%}
+  <div class="publication-links">
+    {%- if publication.pdf -%}
+      <a href="{% if publication.pdf contains '://' %}{{ publication.pdf }}{% else %}{{ publication.pdf | prepend: '/assets/pdf/' | relative_url }}{% endif %}">PDF</a>
+    {%- endif -%}
+    {%- if publication.doi -%}
+      <a href="https://doi.org/{{ publication.doi }}">DOI</a>
+    {%- endif -%}
+    {%- if publication.url -%}
+      <a href="{{ publication.url }}">
+        {%- if publication.url contains 'ieeexplore.ieee.org' -%}IEEE{%- elsif publication.url contains 'link.springer.com' -%}Springer{%- elsif publication.url contains 'vldb.org' or publication.url contains 'doi.org/10.14778' -%}VLDB{%- elsif publication.url contains 'dl.acm.org' -%}ACM{%- elsif publication.url contains 'arxiv.org' -%}arXiv{%- elsif publication.url contains 'dblp.org' -%}DBLP{%- else -%}Link{%- endif -%}
+      </a>
+    {%- endif -%}
+    {%- if publication.arxiv -%}
+      <a href="https://arxiv.org/abs/{{ publication.arxiv }}">arXiv</a>
+    {%- endif -%}
+    {%- if publication.code -%}
+      <a href="{{ publication.code }}">Code</a>
+    {%- endif -%}
+    {%- if publication.blog -%}
+      <a href="{{ publication.blog }}">Blog</a>
+    {%- endif -%}
+    {%- if publication.website -%}
+      <a href="{{ publication.website }}">Website</a>
+    {%- endif -%}
+  </div>
+  {%- endif -%}
+
+  {%- if publication.bibtex -%}
+  <details class="publication-bibtex">
+    <summary>BibTeX</summary>
+    <pre><code>{{ publication.bibtex | escape }}</code></pre>
+  </details>
+  {%- endif -%}
+</article>

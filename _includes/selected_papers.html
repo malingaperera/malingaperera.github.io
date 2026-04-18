@@ -1,4 +1,7 @@
 
-          <div class="publications">
-            {% bibliography -f {{ site.scholar.bibliography }} --group_by none --query @*[selected=true]* %}
+          <div class="publications-list">
+            {% assign selected_publications = site.data.publications | where: "selected", true %}
+            {% for publication in selected_publications %}
+              {% include publication.html publication=publication %}
+            {% endfor %}
           </div>
