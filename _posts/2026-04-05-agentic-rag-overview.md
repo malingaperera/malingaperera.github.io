@@ -2,6 +2,7 @@
 layout: post
 title: "Agentic RAG with AWS 1: What Agentic RAG Is and What This Series Will Build"
 date: 2026-04-05
+last_modified_at: 2026-04-19
 description: A practical introduction to agentic RAG using a simple AWS-based engineering knowledge assistant.
 tags: rag agents aws llm
 categories:
@@ -94,11 +95,11 @@ That does not automatically make the system better. It makes the system more cap
 
 The rest of the series walks from raw documents all the way to production operations. Each part adds one design layer to the same system, so the later posts build on the earlier ones instead of starting over.
 
-### Part 2: Documents, Ingestion, and Metadata Design `Coming soon`
+### Part 2: [Documents, Ingestion, and Metadata Design]({{ '/agentic-rag-ingestion-and-metadata/' | relative_url }})
 
 This post starts at the real beginning: the source documents. It covers which data sources are worth indexing, why S3 is the right default for our AWS example, how to think about ingestion quality, and why metadata is not optional. It also includes the sample dataset used throughout the series so the later labs have a concrete foundation.
 
-### Part 3: Chunking Strategy, Size, Overlap, and Boundaries `Coming soon`
+### Part 3: [Chunking Strategy, Size, Overlap, and Boundaries]({{ '/agentic-rag-chunking-strategy/' | relative_url }})
 
 This post explains why chunking is one of the highest-leverage choices in the whole system. It covers fixed-size, hierarchical, semantic, and manual chunking; how chunk boundaries affect retrieval quality; and how to reason about different document types in the sample corpus. The hands-on section stays close to Bedrock Knowledge Bases so the reader can inspect real chunking options in AWS.
 
@@ -163,4 +164,4 @@ That is the thread running through every post in this series.
 
 If this is the problem you care about, this page should stay useful as the series grows. The later posts will go deep into each decision, but this is the map for the whole journey.
 
-In the next post, I will start at the beginning of the pipeline: which documents should enter the system, how they should be processed, and why metadata design quietly determines much of the system's eventual quality.
+In [the next post]({{ '/agentic-rag-ingestion-and-metadata/' | relative_url }}), I start at the beginning of the pipeline: which documents should enter the system, how they should be processed, and why metadata design quietly determines much of the system's eventual quality.
