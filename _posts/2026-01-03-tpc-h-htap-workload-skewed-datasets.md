@@ -41,7 +41,7 @@ The tool is database-agnostic (SQL Server syntax provided) and allows you to con
 
 ## Why This Matters
 
-This benchmark was crucial for evaluating [HMAB](https://malingaperera.github.io/blog/2026/hmab-self-driving-database-tuning-explained/), our self-driving database tuning system. HTAP workloads with skewed data are particularly challenging because:
+This benchmark was crucial for evaluating [HMAB](https://www.malinga.me/blog/2026/hmab-self-driving-database-tuning-explained/), our self-driving database tuning system. HTAP workloads with skewed data are particularly challenging because:
 
 - The database structure changes as inserts and deletes occur
 - Indexes that speed up transactions might slow down analytics
