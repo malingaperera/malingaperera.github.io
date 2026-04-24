@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="750" height="300" viewBox="0 0 750 300" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="24" y1="24" x2="726" y2="276" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8FAFC"/>
+      <stop offset="1" stop-color="#DCFCE7"/>
+    </linearGradient>
+  </defs>
+  <rect width="750" height="300" rx="28" fill="#F8FAFC"/>
+  <rect x="24" y="24" width="702" height="252" rx="28" fill="url(#bg)" stroke="#BFDBFE"/>
+  <rect x="54" y="46" width="642" height="208" rx="24" fill="#FFFFFF" fill-opacity="0.9" stroke="#CBD5E1"/>
+  <rect x="598" y="40" width="92" height="34" rx="17" fill="#0F172A"/>
+  <text x="644" y="61" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#F8FAFC">AWS</text>
+
+  <text x="78" y="82" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#0F172A">Query + Chunks</text>
+  <rect x="78" y="100" width="144" height="34" rx="17" fill="#EFF6FF" stroke="#2563EB" stroke-width="2"/>
+  <text x="150" y="122" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#1D4ED8">payment failure</text>
+  <rect x="78" y="146" width="144" height="30" rx="15" fill="#ECFEFF" stroke="#0F766E"/>
+  <text x="150" y="166" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#115E59">retry runbook</text>
+  <rect x="78" y="184" width="144" height="30" rx="15" fill="#FEF3C7" stroke="#F59E0B"/>
+  <text x="150" y="204" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#B45309">invoice events</text>
+
+  <path d="M240 158H306" stroke="#0F172A" stroke-width="3" stroke-linecap="round"/>
+  <path d="M298 150L306 158L298 166" stroke="#0F172A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <circle cx="382" cy="158" r="56" fill="#E0F2FE" stroke="#0284C7" stroke-width="2"/>
+  <circle cx="382" cy="158" r="34" fill="#FFFFFF" stroke="#38BDF8" stroke-dasharray="4 6"/>
+  <text x="382" y="151" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#0C4A6E">Embedding</text>
+  <text x="382" y="171" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#0C4A6E">Model</text>
+
+  <path d="M438 158H498" stroke="#0F172A" stroke-width="3" stroke-linecap="round"/>
+  <path d="M490 150L498 158L490 166" stroke="#0F172A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <text x="520" y="82" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#0F172A">Vector Space</text>
+  <rect x="514" y="96" width="142" height="124" rx="18" fill="#F8FAFC" stroke="#94A3B8" stroke-width="2"/>
+  <circle cx="548" cy="128" r="8" fill="#2563EB"/>
+  <circle cx="586" cy="118" r="8" fill="#0F766E"/>
+  <circle cx="574" cy="154" r="8" fill="#F59E0B"/>
+  <circle cx="620" cy="150" r="8" fill="#2563EB"/>
+  <circle cx="606" cy="184" r="8" fill="#0F766E"/>
+  <circle cx="552" cy="184" r="10" fill="#0F172A"/>
+  <path d="M552 184L606 184" stroke="#64748B" stroke-width="2" stroke-dasharray="4 4"/>
+  <path d="M552 184L574 154" stroke="#64748B" stroke-width="2" stroke-dasharray="4 4"/>
+  <text x="552" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#0F172A">query</text>
+</svg>
