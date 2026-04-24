@@ -14,7 +14,7 @@ published: true
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/images/2026-05-01-agentic-rag-embedding-model-selection/agentic-rag-embedding-model-selection-hero.png" class="img-fluid rounded z-depth-1 mx-auto d-block" alt="Embedding model overview showing a user query and document chunks transformed into vectors and positioned in vector space" %}
+        {% include figure.html path="assets/images/2026-05-01-agentic-rag-embedding-model-selection/agentic-rag-embedding-model-selection-hero.png" class="img-fluid rounded z-depth-1 mx-auto d-block" alt="Embedding model overview showing a user query and document chunks transformed into vectors and positioned in vector space" zoomable=true %}
     </div>
 </div>
 
@@ -40,7 +40,7 @@ If you want the short version first, jump to [A Practical Default](#a-practical-
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/images/2026-05-01-agentic-rag-embedding-model-selection/embedding-model-what-it-does.png" class="img-fluid rounded z-depth-1 mx-auto d-block" alt="Three-step diagram showing text converted into vectors, semantically related chunks clustering together, and the top retrieved chunk selected for a payment failure query" %}
+        {% include figure.html path="assets/images/2026-05-01-agentic-rag-embedding-model-selection/embedding-model-what-it-does.png" class="img-fluid rounded z-depth-1 mx-auto d-block" alt="Three-step diagram showing text converted into vectors, semantically related chunks clustering together, and the top retrieved chunk selected for a payment failure query" zoomable=true %}
     </div>
 </div>
 
@@ -150,7 +150,7 @@ This is the point where the design starts to become more expensive to undo, so i
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/images/2026-05-01-agentic-rag-embedding-model-selection/bedrock-embedding-model-selection.png" class="img-fluid rounded z-depth-1 mx-auto d-block" alt="Amazon Bedrock model selection dialog showing Amazon model provider, Titan Text Embeddings V2 selected, and on-demand inference" %}
+        {% include figure.html path="assets/images/2026-05-01-agentic-rag-embedding-model-selection/bedrock-embedding-model-selection.png" class="img-fluid rounded z-depth-1 mx-auto d-block" alt="Amazon Bedrock model selection dialog showing Amazon model provider, Titan Text Embeddings V2 selected, and on-demand inference" zoomable=true %}
     </div>
 </div>
 
