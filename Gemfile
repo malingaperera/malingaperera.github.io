@@ -1,4 +1,7 @@
 source 'https://rubygems.org'
+
+gem 'tzinfo-data', platforms: [:mingw, :x64_mingw, :mswin]
+
 group :jekyll_plugins do
     # gem 'wdm', '~> 0.1.0'
     gem 'classifier-reborn'
