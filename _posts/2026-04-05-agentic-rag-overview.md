@@ -103,11 +103,11 @@ This post starts at the real beginning: the source documents. It covers which da
 
 This post explains why chunking is one of the highest-leverage choices in the whole system. It covers fixed-size, hierarchical, semantic, and manual chunking; how chunk boundaries affect retrieval quality; and how to reason about different document types in the sample corpus. The hands-on section stays close to Bedrock Knowledge Bases so the reader can inspect real chunking options in AWS.
 
-### Part 4: Embedding Model Selection `Coming soon`
+### Part 4: [Embedding Model Selection]({{ '/agentic-rag-embedding-model-selection/' | relative_url }})
 
 This post covers what embeddings are actually doing, how to compare models, why dimensions matter, and why this choice is more expensive to reverse than it first appears. It uses the AWS console flow to explain the Bedrock embedding choices and sets up the default path used in the rest of the series.
 
-### Part 5: Choosing the Vector Database `Coming soon`
+### Part 5: [Choosing the Vector Database]({{ '/agentic-rag-vector-database-selection/' | relative_url }})
 
 This post moves from vectors in theory to vectors in storage. It compares the practical AWS-native options you will actually see, explains when S3 Vectors is enough and when a heavier search-oriented store becomes justified, and completes the first working knowledge base in AWS. It is the point where the earlier design choices become a running system.
 
