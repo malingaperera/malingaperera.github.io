@@ -2,7 +2,7 @@
 layout: post
 title: "Agentic RAG with AWS 1: What Agentic RAG Is and What This Series Will Build"
 date: 2026-04-05
-last_modified_at: 2026-04-19
+last_modified_at: 2026-05-09
 description: A practical introduction to agentic RAG using a simple AWS-based engineering knowledge assistant.
 tags: rag agents aws llm
 categories:
@@ -111,7 +111,7 @@ This post covers what embeddings are actually doing, how to compare models, why 
 
 This post moves from vectors in theory to vectors in storage. It compares the practical AWS-native options you will actually see, explains when S3 Vectors is enough and when a heavier search-oriented store becomes justified, and completes the first working knowledge base in AWS. It is the point where the earlier design choices become a running system.
 
-### Part 6: Retrieval Design, Top-k, Filters, Hybrid Search, and Reranking `Coming soon`
+### Part 6: [Retrieval Design, Top-k, Filters, Hybrid Search, and Reranking]({{ '/agentic-rag-retrieval-design/' | relative_url }})
 
 This post is about tuning the system you just built. It covers top-k, score interpretation, metadata filters, reranking, and the difference between a working knowledge base and a well-tuned one. It also uses metadata sidecar files and concrete sample queries so retrieval behavior can be inspected rather than guessed.
 
