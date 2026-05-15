@@ -209,7 +209,7 @@ you should also have:
 
 - `processed/hierarchical/payments/payment-retry-runbook.md.metadata.json`
 
-If you uploaded only the markdown files earlier, download the [agentic RAG sample data package]({{ '/assets/files/agentic-rag/agentic-rag-sample-data.zip' | relative_url }}) and upload the matching `.metadata.json` files before running another sync.
+Filters only work if Bedrock has metadata to filter on. If you uploaded only the markdown files earlier, download the [agentic RAG sample data package]({{ '/assets/files/agentic-rag/agentic-rag-sample-data.zip' | relative_url }}) and upload the matching `.metadata.json` files before running another sync.
 
 If you want concrete examples before uploading them, here are two of the packaged sidecar files:
 
