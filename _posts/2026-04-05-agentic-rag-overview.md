@@ -2,7 +2,7 @@
 layout: post
 title: "Agentic RAG with AWS 1: What Agentic RAG Is and What This Series Will Build"
 date: 2026-04-05
-last_modified_at: 2026-05-09
+last_modified_at: 2026-05-16
 description: A practical introduction to agentic RAG using a simple AWS-based engineering knowledge assistant.
 tags: rag agents aws llm
 categories:
@@ -115,7 +115,7 @@ This post moves from vectors in theory to vectors in storage. It compares the pr
 
 This post is about tuning the system you just built. It covers top-k, score interpretation, metadata filters, reranking, and the difference between a working knowledge base and a well-tuned one. It also uses metadata sidecar files and concrete sample queries so retrieval behavior can be inspected rather than guessed.
 
-### Part 7: The Agentic Layer, Planning, Tools, and Multi-Step Retrieval `Coming soon`
+### Part 7: [The Agentic Layer, Planning, Tools, and Multi-Step Retrieval]({{ '/agentic-rag-agent-design/' | relative_url }})
 
 This is where the system becomes genuinely agentic. It explains when query rewriting, question decomposition, and tool use are actually worth adding. The hands-on part moves beyond the console and uses a small Lambda-based workflow so the reader can see what multi-step retrieval looks like in practice.
 
