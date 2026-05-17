@@ -201,16 +201,32 @@ This file is intentionally simple:
 
 ### Step 2: Create a Lambda Execution Role
 
-Create an IAM role for Lambda. In the AWS console:
+Create an IAM role for Lambda with a concrete name so it is easy to find later.
+
+In the AWS console:
+
+The click path is: IAM → Roles → Create role → AWS service → Lambda → Next.
 
 1. open `IAM`
 2. go to `Roles`
 3. choose `Create role`
-4. pick `AWS service`
-5. pick `Lambda`
-6. attach `AWSLambdaBasicExecutionRole`
+4. choose `AWS service`
+5. choose `Lambda`
+6. choose `Next`
+7. on the permissions page, search for `AWSLambdaBasicExecutionRole`
+8. check `AWSLambdaBasicExecutionRole`
+9. choose `Next`
+10. set `Role name` to `agentic-rag-lab-lambda-role`
+11. choose `Create role`
 
-Then add an inline policy so the function can query the knowledge base and invoke the answer model.
+Then add an inline policy so the function can query the knowledge base and invoke the answer model:
+
+1. open the `agentic-rag-lab-lambda-role` role
+2. go to the `Permissions` tab
+3. choose `Add permissions`
+4. choose `Create inline policy`
+5. choose the `JSON` tab
+6. paste this policy
 
 For this lab, a simple policy is enough:
 
@@ -240,6 +256,18 @@ For this lab, a simple policy is enough:
 
 Replace `REGION`, `ACCOUNT_ID`, and `KB_ID` with your values.
 
+| Placeholder | Where to find it |
+|---|---|
+| `REGION` | top-right of the AWS console |
+| `ACCOUNT_ID` | click your username in the top-right of the AWS console, then copy the account ID |
+| `KB_ID` | Bedrock console -> Knowledge bases -> your knowledge base -> ID column |
+
+After pasting the policy:
+
+1. choose `Next`
+2. set the policy name to `bedrock-retrieve-and-invoke`
+3. choose `Create policy`
+
 For the lab, using `Resource: "*"` for `bedrock:InvokeModel` is acceptable. In production, narrow that to the specific model or inference profile you actually use.
 
 Also make sure your AWS account has model access enabled in Bedrock for the model you plan to use for decomposition and answer generation.
@@ -248,11 +276,17 @@ Also make sure your AWS account has model access enabled in Bedrock for the mode
 
 In the AWS console:
 
+The click path is: Lambda → Create function → Author from scratch.
+
 1. open `Lambda`
 2. choose `Create function`
-3. pick `Author from scratch`
-4. choose `Python 3.12`
-5. attach the IAM role from the previous step
+3. choose `Author from scratch`
+4. set `Function name` to `agentic-rag-lab`
+5. set `Runtime` to `Python 3.12`
+6. expand `Change default execution role`
+7. choose `Use an existing role`
+8. select `agentic-rag-lab-lambda-role`
+9. choose `Create function`
 
 Then replace the contents of the default `lambda_function.py` editor with the downloaded file.
 
@@ -266,15 +300,58 @@ Set these environment variables:
 
 Then deploy the function.
 
+Before testing, increase the timeout. The default Lambda timeout is 3 seconds, which is usually not enough for Bedrock model calls.
+
+1. go to the `Configuration` tab
+2. choose `General configuration`
+3. choose `Edit`
+4. set `Timeout` to at least `60` seconds
+5. choose `Save`
+
 For this lab, the function is doing three agentic things explicitly:
 
 - deciding whether the question should be split
 - retrieving evidence for each sub-question
 - producing one final answer from the combined evidence set
 
+### Model Selection — What to Watch For
+
+Not all Bedrock models support direct on-demand invocation.
+
+If you use a newer model such as `anthropic.claude-opus-4-6-v1`, you may see an error like this:
+
+```text
+ValidationException: Invocation of model ID anthropic.claude-opus-4-6-v1 with on-demand throughput isn't supported. Retry your request with the ID or ARN of an inference profile that contains this model.
+```
+
+The fix is to use a cross-region inference profile by adding the region prefix. For example:
+
+- `us.anthropic.claude-opus-4-6-v1`
+
+That routes the call through the US inference profile.
+
+You can also use a model that works directly with on-demand invocation, such as:
+
+- `anthropic.claude-3-5-sonnet-20241022-v1:0`
+- `anthropic.claude-3-sonnet-20240229-v1:0`
+- `anthropic.claude-3-haiku-20240307-v1:0`
+
+For this lab, Sonnet or Haiku is more than enough for query decomposition and synthesis. Opus adds cost and latency without a meaningful quality improvement for this use case.
+
+If your Lambda is in a Region such as `ap-southeast-2`, using a `us.` prefixed model will add cross-region latency, but it is fine for the lab.
+
 ### Step 4: Test It with a Multi-Hop Question
 
 Create a Lambda test event like this:
+
+The click path is: Test tab → Create new event → name it `multi-hop-test` → paste the JSON → Save → Test.
+
+1. go to the `Test` tab
+2. choose `Create new event`
+3. name the event `multi-hop-test`
+4. paste this JSON
+5. choose `Save`
+6. choose `Test`
 
 ```json
 {
@@ -316,7 +393,75 @@ You are looking for concrete differences such as:
 
 This comparison is important. If the multi-step version is not clearly better on this question, then the agentic layer is not earning its complexity yet.
 
-### Step 6: Tune the Boundaries Instead of Adding More Complexity
+### What You Will Likely See — The First Question May Not Show a Difference
+
+For this first question, you may find that the Lambda result and the Bedrock console result are very close.
+
+In fact, both approaches may return the same four source documents and produce a similarly complete answer. That is expected. It is a good sign, not a failure.
+
+It usually means:
+
+1. the knowledge base is well structured
+2. the chunking strategy from earlier posts is working
+3. single-pass retrieval is strong enough for this question
+
+The honest conclusion is that, for this specific question, the agentic layer is probably not earning its complexity. The single-pass baseline already surfaces the relevant evidence.
+
+That matters because it reinforces the conservative default from earlier in the post. Not every question needs an agent. The next test is where the agentic layer has a better chance to prove its value.
+
+| Dimension | Bedrock Single-Pass | Lambda (Agentic) |
+|---|---|---|
+| Documents found | All 4 | All 4 |
+| Answer completeness | Complete | Complete |
+| Latency | Lower | Higher |
+| Verdict | Sufficient for this question | Unnecessary complexity for this question |
+
+### Step 6: Testing a Harder Question — Diagnosing a Lost Notification
+
+The first question is clean. It maps neatly to document titles and concepts from the sample dataset.
+
+Real operational questions are often messier. They use natural language, mix symptoms with system behavior, and ask for a debugging path rather than a static explanation.
+
+Create another Lambda test event:
+
+```json
+{
+  "query": "A customer says they never got a failure email but their card was declined three days ago — walk me through every service and event I should check to diagnose where the notification was lost."
+}
+```
+
+This question is harder because:
+
+- the phrasing is vague in the same way as "the secret thing" example earlier
+- it is diagnostic, not just a "what is X?" question
+- it requires tracing the full chain as a debugging path
+- it mixes document knowledge with operational reasoning
+
+The agentic Lambda should usually:
+
+1. reformulate the vague question into retrieval-friendly sub-questions, such as "payment declined event flow through notification services" or "failure email notification pipeline diagnosis steps"
+2. produce a structured diagnostic runbook with step-by-step checks at each service
+3. cover edge cases such as retries still in progress, dead-letter queues, suppression lists, and template failures
+
+The single-pass `Retrieve and generate` baseline should usually:
+
+1. describe the flow correctly
+2. mention checking `InvoicePaymentFailed` first
+3. produce a more generic, less actionable answer
+
+| Dimension | Bedrock Single-Pass | Lambda (Agentic) |
+|---|---|---|
+| Answer format | General flow description | Structured diagnostic runbook |
+| Actionable? | Somewhat | Highly — step-by-step with what to check and why |
+| Handles vague phrasing? | Partially | Yes — reformulated into targeted sub-questions |
+| Edge cases covered | Mentions retries | Covers retries, dead-letters, suppression lists, template failures |
+| Verdict | Correct but generic | Earns its complexity |
+
+Results will vary depending on the model you use for decomposition and synthesis. A stronger model, such as Opus or Sonnet, will usually produce better decomposition and more structured answers. A weaker model may not show as dramatic a difference.
+
+The key observation is whether decomposition changes the retrieval pattern, not whether the final prose sounds better.
+
+### Step 7: Tune the Boundaries Instead of Adding More Complexity
 
 Before adding more planner logic, tune the small controls you already have.
 
@@ -332,7 +477,7 @@ Then test a simpler question such as:
 
 For a question like that, the function should usually keep the query simple and avoid an elaborate retrieval path. If it starts splitting easy questions into too many parts, your agentic logic is already too aggressive.
 
-### Step 7: Notice Where a Real Tool Would Be Needed
+### Step 8: Notice Where a Real Tool Would Be Needed
 
 Now try a mixed question such as:
 
@@ -353,9 +498,13 @@ This is exactly why agentic RAG is not just "retrieve more." It is about decidin
 By the end of this lab, you should have a clearer sense of:
 
 - how the agentic layer looks when you implement it as normal AWS application code
+- that not every question benefits from an agentic layer, and the first test proves this
 - when multi-step retrieval produces a better answer than the single-pass baseline
+- why vague, operational questions are where multi-step retrieval earns its place
 - how query decomposition changes the evidence set that reaches the final model
+- why model selection matters, and why newer Bedrock models may require inference profiles
 - where document retrieval stops being enough and a real tool would be needed
+- how to compare the same question in both systems before deciding whether to keep the agentic layer for a given use case
 - why it is better to start with a small, inspectable loop than a vague autonomous agent
 
 That is the main point of the post: the agentic layer is not there to make every query more elaborate. It is there to add extra steps only when the simpler path is not enough.
