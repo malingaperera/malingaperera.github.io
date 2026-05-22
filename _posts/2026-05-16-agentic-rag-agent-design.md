@@ -85,7 +85,7 @@ Every extra reasoning step adds:
 - more prompt complexity
 - more evaluation surface
 
-If standard retrieval is enough, agent behavior is unnecessary complexity.This connects back to the accountability problem with AI systems generally. More autonomy is only useful when the responsibility is narrow enough to test, observe, and constrain.
+If standard retrieval is enough, agent behavior is unnecessary complexity. This connects back to the accountability problem with AI systems generally. More autonomy is only useful when the responsibility is narrow enough to test, observe, and constrain.
 
 ## When the Agentic Loop Is Worth It
 

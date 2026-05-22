@@ -6,15 +6,15 @@ description: How to choose an embedding model for an agentic RAG system based on
 tags: rag agents aws llm embeddings
 categories:
   - artificial intelligence
-thumbnail: assets/images/2026-05-01-agentic-rag-embedding-model-selection/agentic-rag-embedding-model-selection-hero.png
-og_image: assets/images/2026-05-01-agentic-rag-embedding-model-selection/agentic-rag-embedding-model-selection-hero.png
+thumbnail: assets/images/2026-04-25-agentic-rag-embedding-model-selection/agentic-rag-embedding-model-selection-hero.png
+og_image: assets/images/2026-04-25-agentic-rag-embedding-model-selection/agentic-rag-embedding-model-selection-hero.png
 giscus_comments: false
 published: true
 ---
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/images/2026-05-01-agentic-rag-embedding-model-selection/agentic-rag-embedding-model-selection-hero.png" class="img-fluid rounded z-depth-1 mx-auto d-block" alt="Embedding model overview showing a user query and document chunks transformed into vectors and positioned in vector space" zoomable=true %}
+        {% include figure.html path="assets/images/2026-04-25-agentic-rag-embedding-model-selection/agentic-rag-embedding-model-selection-hero.png" class="img-fluid rounded z-depth-1 mx-auto d-block" alt="Embedding model overview showing a user query and document chunks transformed into vectors and positioned in vector space" zoomable=true %}
     </div>
 </div>
 
@@ -40,7 +40,7 @@ If you want the short version first, jump to [A Practical Default](#a-practical-
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/images/2026-05-01-agentic-rag-embedding-model-selection/embedding-model-what-it-does.png" class="img-fluid rounded z-depth-1 mx-auto d-block" alt="Three-step diagram showing text converted into vectors, semantically related chunks clustering together, and the top retrieved chunk selected for a payment failure query" zoomable=true %}
+        {% include figure.html path="assets/images/2026-04-25-agentic-rag-embedding-model-selection/embedding-model-what-it-does.png" class="img-fluid rounded z-depth-1 mx-auto d-block" alt="Three-step diagram showing text converted into vectors, semantically related chunks clustering together, and the top retrieved chunk selected for a payment failure query" zoomable=true %}
     </div>
 </div>
 
@@ -73,7 +73,7 @@ For the running example in this series, which is mainly English engineering docu
 
 These details change over time, so check the current [Amazon Bedrock pricing page](https://aws.amazon.com/bedrock/pricing/) and the current model documentation before making a final decision.
 
-Unfortunately AWS knowledge base does not allow change of the embedding systems at this point. That mean you would need to create a new knowledge base were you have to pay the intial embedding cost again. 
+Unfortunately, an AWS knowledge base does not allow the embedding configuration to be changed after creation. That means you would need to create a new knowledge base and pay the initial embedding cost again.
 
 ## General-Purpose vs Domain-Specific Models
 
@@ -150,7 +150,7 @@ This is the point where the design starts to become more expensive to undo, so i
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/images/2026-05-01-agentic-rag-embedding-model-selection/bedrock-embedding-model-selection.png" class="img-fluid rounded z-depth-1 mx-auto d-block" alt="Amazon Bedrock model selection dialog showing Amazon model provider, Titan Text Embeddings V2 selected, and on-demand inference" zoomable=true %}
+        {% include figure.html path="assets/images/2026-04-25-agentic-rag-embedding-model-selection/bedrock-embedding-model-selection.png" class="img-fluid rounded z-depth-1 mx-auto d-block" alt="Amazon Bedrock model selection dialog showing Amazon model provider, Titan Text Embeddings V2 selected, and on-demand inference" zoomable=true %}
     </div>
 </div>
 
