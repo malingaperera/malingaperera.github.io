@@ -14,7 +14,7 @@ published: true
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/images/2026-05-26-context-management-ai-agents/context-management-ai-agents.png" class="img-fluid rounded z-depth-1 mx-auto d-block" alt="Two-phase context management workflow: research phase filling the context window, distilled into context files, then a clean implementation phase" zoomable=true %}
+        {% include figure.html path="assets/images/2026-05-26-context-management-ai-agents/context-management-ai-agents.png" class="img-fluid rounded z-depth-1 mx-auto d-block" alt="Two-phase context management workflow: research phase filling the context window, distilled into context files , then a clean implementation phase" zoomable=true %}
     </div>
 </div>
 
