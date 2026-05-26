@@ -62,9 +62,7 @@ For a typical coding task, phase one might produce files like these (this is onl
 
 **`architecture.md`** — The approach you chose and why. Which patterns apply, which libraries to use, how the pieces fit together. Enough to explain the design without re-deriving it.
 
-**`data.md`** — The data structures, schemas, APIs, or formats the implementation will work with. The specifics that the agent will need in front of it to write correct code.
-
-**`implementation.md`** — Low level implementation details.
+**`implementation.md`** — The data structures, schemas, APIs, or formats the implementation will work with, along with any low-level implementation details the agent will need in front of it to write correct code.
 
 **`tasks.md`** — The implementation broken into discrete steps. Ordered, specific, and independent enough that each one can be worked on without the full context of all the others.
 
