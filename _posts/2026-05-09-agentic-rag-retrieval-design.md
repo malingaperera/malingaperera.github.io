@@ -26,7 +26,7 @@ This is where retrieval design begins.
 
 At this stage, a working system can still feel uneven. The corpus may be reasonable and the model may be capable, but retrieval can still return too little evidence, too much noise, or results that are related without being useful.
 
-For the AWS engineering assistant in this series, retrieval design matters because engineers ask both fuzzy conceptual questions and exact operational questions. The system needs to handle both.
+For the engineering assistant with AWS in this series, retrieval design matters because engineers ask both fuzzy conceptual questions and exact operational questions. The system needs to handle both.
 
 This post answers five practical questions:
 

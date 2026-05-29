@@ -122,7 +122,7 @@ It gives us:
 - clean separation between source systems and the RAG ingestion pipeline
 - a storage layer that works well with both batch and event-driven processing
 
-For the AWS engineering assistant example, S3 is therefore "good enough" in the best possible sense. It is native, cheap, operationally familiar, and flexible enough to **act as the canonical staging layer for ingestion**. That matters because internal knowledge is rarely born clean. A runbook export, a markdown document, and an internal HTML page should not necessarily go into chunking in their raw original forms. They usually need extraction, cleanup, normalization, or enrichment first.
+For the engineering assistant with AWS, S3 is therefore "good enough" in the best possible sense. It is native, cheap, operationally familiar, and flexible enough to **act as the canonical staging layer for ingestion**. That matters because internal knowledge is rarely born clean. A runbook export, a markdown document, and an internal HTML page should not necessarily go into chunking in their raw original forms. They usually need extraction, cleanup, normalization, or enrichment first.
 
 ## Data Source Organisation
 

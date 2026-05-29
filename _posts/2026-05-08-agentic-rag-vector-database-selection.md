@@ -18,7 +18,7 @@ published: true
     </div>
 </div>
 
-In the previous post, we chose `Amazon Titan Text Embeddings V2` as the working default for the AWS engineering assistant and stopped before creating the knowledge base. That pause was deliberate.
+In the previous post, we chose `Amazon Titan Text Embeddings V2` as the working default for the engineering assistant with AWS and stopped before creating the knowledge base. That pause was deliberate.
 
 Once you commit to an embedding model, the next commitment is where those vectors will live.
 
@@ -26,7 +26,7 @@ This is where many teams ask, "Which vector database is best?"
 
 That question is usually too broad to help. The better question is: which storage and retrieval layer fits the workload, the filtering needs, and the amount of operational complexity your team is willing to own?
 
-For the AWS engineering assistant in this series, the answer depends on more than nearest-neighbor search. The system also needs metadata filters, predictable enough latency, clean updates from S3 data sources, and enough operational simplicity that the team can keep it healthy over time.
+For the engineering assistant with AWS in this series, the answer depends on more than nearest-neighbor search. The system also needs metadata filters, predictable enough latency, clean updates from S3 data sources, and enough operational simplicity that the team can keep it healthy over time.
 
 This post answers five practical questions:
 
@@ -80,7 +80,7 @@ The second path exposes more options because it can connect to stores you prepar
 
 That table is not a ranking. It is a fit map.
 
-For the AWS engineering assistant in this series:
+For the engineering assistant with AWS in this series:
 
 - `Amazon S3 Vectors` is attractive because it is simple, auto-creatable, and cost-efficient for a learning-oriented setup
 - `Amazon OpenSearch Serverless` is attractive when speed, filtering, and search behavior are more important than keeping baseline cost low

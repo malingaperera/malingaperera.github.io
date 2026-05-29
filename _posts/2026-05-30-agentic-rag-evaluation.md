@@ -18,30 +18,9 @@ published: true
     </div>
 </div>
 
-In the previous post, we improved the final stage of the system: how retrieved evidence is assembled, ordered, and prompted before the model answers.
+In the previous post, we improved the final stage of the system: how retrieved evidence is assembled, ordered, and prompted before the model answers. With that in place, the whole pipeline now exists end to end, from documents in S3 through chunking, retrieval, optional agentic decomposition, and final answer generation. The question is no longer whether we can build it, but whether it actually works.
 
-That means we now have a full path to evaluate:
-
-- documents in S3
-- chunking and embeddings
-- retrieval and reranking
-- optional agentic decomposition
-- context assembly
-- final answer generation
-
-RAG systems are easy to demonstrate and hard to measure.
-
-You can always find a question that makes the system look impressive. The real issue is whether it works reliably across the questions that matter.
-
-This is where evaluation becomes non-negotiable.
-
-Without evaluation, teams usually end up arguing from anecdotes:
-
-- "It felt better after we changed the prompt."
-- "The new embedding model seems smarter."
-- "The agent looked more capable."
-
-Those statements may be true, but without a disciplined test loop, they are not engineering evidence.
+That is harder than it sounds, because RAG systems are easy to demonstrate and hard to measure. You can always find a question that makes the system look impressive; the real test is whether it holds up across the questions that matter. Without a disciplined test loop, teams end up arguing from anecdotes like "it felt better after we changed the prompt" or "the new embedding model seems smarter." Those impressions may even be correct, but they are not engineering evidence.
 
 This post answers five practical questions:
 
@@ -59,7 +38,7 @@ If you want the short version first, jump to [A Practical Default](#a-practical-
 
 You do not need a giant benchmark to begin.
 
-For the AWS engineering assistant in this series, a useful first evaluation set should reflect the exact kinds of questions we have been using:
+For the engineering assistant with AWS in this series, a useful first evaluation set should reflect the exact kinds of questions we have been using:
 
 - direct factual lookup questions
 - operational procedure questions
@@ -389,7 +368,7 @@ This is the lightweight, runtime side of evaluation. The final post on productio
 
 ## A Practical Default
 
-For a first serious version of the AWS engineering assistant, I would start with:
+For a first serious version of the engineering assistant with AWS, I would start with:
 
 - a small but representative gold set
 - a manual review rubric

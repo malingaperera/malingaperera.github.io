@@ -24,7 +24,7 @@ That is the job of the embedding model.
 
 A common simplification is to treat embedding selection as "pick the strongest model you can afford." In practice, that is usually not specific enough to guide a good decision. Strength matters, but so do latency, corpus shape, operational simplicity, and the hidden cost of changing your mind later.
 
-For the AWS engineering assistant in this series, the corpus contains runbooks, service flow notes, platform overviews, and onboarding material. That means the embedding model needs to handle both conceptual descriptions and concrete operational language.
+For the engineering assistant with AWS in this series, the corpus contains runbooks, service flow notes, platform overviews, and onboarding material. That means the embedding model needs to handle both conceptual descriptions and concrete operational language.
 
 This post answers five practical questions:
 

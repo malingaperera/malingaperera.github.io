@@ -24,7 +24,7 @@ In the previous post, we organized the source data in S3 and deliberately groupe
 
 If chunks are too large, retrieval becomes coarse. If they are too small, the system loses context. If boundaries ignore document structure, you end up retrieving fragments that are technically related but not actually useful.
 
-For the AWS engineering assistant in this series, chunking matters because the documents are heterogeneous. A runbook is not shaped like an architecture decision record (ADR). An API reference is not shaped like an incident review. A payment retry explanation may include both narrative text and a numbered operational procedure. If chunking treats all of that as one flat stream, retrieval quality drops.
+For the engineering assistant with AWS in this series, chunking matters because the documents are heterogeneous. A runbook is not shaped like an architecture decision record (ADR). An API reference is not shaped like an incident review. A payment retry explanation may include both narrative text and a numbered operational procedure. If chunking treats all of that as one flat stream, retrieval quality drops.
 
 This post answers five practical questions:
 
