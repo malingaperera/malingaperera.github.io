@@ -2,7 +2,7 @@
 layout: post
 title: "Agentic RAG with AWS 1: What Agentic RAG Is and What This Series Will Build"
 date: 2026-04-05
-last_modified_at: 2026-05-16
+last_modified_at: 2026-05-30
 description: A practical introduction to agentic RAG using a simple AWS-based engineering knowledge assistant.
 tags: rag agents aws llm
 categories:
@@ -119,11 +119,11 @@ This post is about tuning the system you just built. It covers top-k, score inte
 
 This is where the system becomes genuinely agentic. It explains when query rewriting, question decomposition, and tool use are actually worth adding. The hands-on part moves beyond the console and uses a small Lambda-based workflow so the reader can see what multi-step retrieval looks like in practice.
 
-### Part 8: Prompting and Context Assembly `Coming soon`
+### Part 8: [Prompting and Context Assembly]({{ '/agentic-rag-prompting-and-context/' | relative_url }})
 
 This post covers what happens after retrieval and planning: how evidence is ordered, filtered, budgeted, and presented to the model. It focuses on grounded prompting rather than prompt theatrics, and it shows why context assembly is an information-design problem rather than just a token-packing exercise.
 
-### Part 9: Evaluation, How to Know Whether the System Is Good `Coming soon`
+### Part 9: [Evaluation, How to Know Whether the System Is Good]({{ '/agentic-rag-evaluation/' | relative_url }})
 
 This post turns the system into something measurable. It covers gold sets, failure taxonomies, retrieval-versus-answer evaluation, Bedrock RAG evaluations, automated regression checks, and the difference between manual review and continuous evaluation. The point is to replace intuition with evidence before the system reaches production.
 
