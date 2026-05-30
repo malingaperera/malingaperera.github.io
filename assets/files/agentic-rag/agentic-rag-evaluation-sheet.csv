@@ -1,0 +1,31 @@
+question,type,expected primary sources,single-pass,multi-step,dominant failure,notes
+Which service publishes invoice events?,direct lookup,invoice-events-overview.md,"retrieval:
+grounding:
+answer usefulness:","retrieval:
+grounding:
+answer usefulness:",,
+How do we rotate the webhook signing secret?,operational,webhook-secret-rotation.md,"retrieval:
+grounding:
+answer usefulness:","retrieval:
+grounding:
+answer usefulness:",,
+What retries happen after a payment failure?,operational,payment-retry-runbook.md,"retrieval:
+grounding:
+answer usefulness:","retrieval:
+grounding:
+answer usefulness:",,
+"What happens after a payment failure, which events are published, and which service eventually sends the customer notification?",multi-hop,"payment-failure-handling.md, invoice-events-overview.md, customer-notification-flow.md","retrieval:
+grounding:
+answer usefulness:","retrieval:
+grounding:
+answer usefulness:",,
+Which service publishes refund events?,not enough evidence,none,"retrieval:
+grounding:
+answer usefulness:","retrieval:
+grounding:
+answer usefulness:",,
+"Which service publishes invoice events, and is it currently enabled in production?",tool-needed boundary,invoice-events-overview.md (first half),"retrieval:
+grounding:
+answer usefulness:","retrieval:
+grounding:
+answer usefulness:",,
