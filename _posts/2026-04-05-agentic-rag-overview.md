@@ -2,7 +2,7 @@
 layout: post
 title: "Agentic RAG with AWS 1: What Agentic RAG Is and What This Series Will Build"
 date: 2026-04-05
-last_modified_at: 2026-05-30
+last_modified_at: 2026-06-16
 description: A practical introduction to agentic RAG using a simple AWS-based engineering knowledge assistant.
 tags: rag agents aws llm
 categories:
@@ -127,7 +127,7 @@ This post covers what happens after retrieval and planning: how evidence is orde
 
 This post turns the system into something measurable. It covers gold sets, failure taxonomies, retrieval-versus-answer evaluation, Bedrock RAG evaluations, automated regression checks, and the difference between manual review and continuous evaluation. The point is to replace intuition with evidence before the system reaches production.
 
-### Part 10: Production Security, Freshness, Observability, and Cost `Coming soon`
+### Part 10: [Production Security, Freshness, Observability, and Cost]({{ '/agentic-rag-production-operations/' | relative_url }})
 
 This final post closes the series by focusing on how to run the system safely over time. It covers the production API shape, data freshness, security, observability, cost, scaling, CI/CD, fallback behavior, and a set of practical operating best practices. It is where the architecture becomes a real service rather than a successful demo.
 
