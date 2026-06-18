@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="240" viewBox="0 0 720 240" fill="none" font-family="Arial, Helvetica, sans-serif">
+  <rect width="720" height="240" fill="#FFFFFF"/>
+
+  <text x="360" y="30" text-anchor="middle" font-size="16" font-weight="700" fill="#0F172A">What the trace should capture for a single question</text>
+
+  <!-- stage boxes -->
+  <rect x="12" y="56" width="96" height="48" rx="10" fill="#F1F5F9" stroke="#94A3B8" stroke-width="2"/>
+  <text x="60" y="84" text-anchor="middle" font-size="12" font-weight="700" fill="#0F172A">Query</text>
+  <text x="60" y="124" text-anchor="middle" font-size="10" font-weight="600" fill="#475569">original query</text>
+
+  <path d="M112 80 H128" stroke="#475569" stroke-width="2" stroke-linecap="round"/>
+  <path d="M121 74 L128 80 L121 86" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="132" y="56" width="96" height="48" rx="10" fill="#F1F5F9" stroke="#94A3B8" stroke-width="2"/>
+  <text x="180" y="78" text-anchor="middle" font-size="12" font-weight="700" fill="#0F172A">Rewrite /</text>
+  <text x="180" y="93" text-anchor="middle" font-size="12" font-weight="700" fill="#0F172A">decompose</text>
+  <text x="180" y="124" text-anchor="middle" font-size="10" font-weight="600" fill="#475569">rewritten and</text>
+  <text x="180" y="137" text-anchor="middle" font-size="10" font-weight="600" fill="#475569">decomposed forms</text>
+
+  <path d="M232 80 H248" stroke="#475569" stroke-width="2" stroke-linecap="round"/>
+  <path d="M241 74 L248 80 L241 86" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="252" y="56" width="96" height="48" rx="10" fill="#F1F5F9" stroke="#94A3B8" stroke-width="2"/>
+  <text x="300" y="84" text-anchor="middle" font-size="12" font-weight="700" fill="#0F172A">Retrieve</text>
+  <text x="300" y="124" text-anchor="middle" font-size="10" font-weight="600" fill="#475569">chunks + sources</text>
+  <text x="300" y="137" text-anchor="middle" font-size="10" font-weight="600" fill="#475569">filters and scores</text>
+
+  <path d="M352 80 H368" stroke="#475569" stroke-width="2" stroke-linecap="round"/>
+  <path d="M361 74 L368 80 L361 86" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="372" y="56" width="96" height="48" rx="10" fill="#FFFFFF" stroke="#94A3B8" stroke-width="2" stroke-dasharray="5 4"/>
+  <text x="420" y="84" text-anchor="middle" font-size="12" font-weight="700" fill="#475569">Tools</text>
+  <text x="420" y="124" text-anchor="middle" font-size="10" font-weight="600" fill="#475569">tool calls</text>
+  <text x="420" y="137" text-anchor="middle" font-size="10" font-weight="600" fill="#94A3B8">(optional)</text>
+
+  <path d="M472 80 H488" stroke="#475569" stroke-width="2" stroke-linecap="round"/>
+  <path d="M481 74 L488 80 L481 86" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="492" y="56" width="96" height="48" rx="10" fill="#F1F5F9" stroke="#94A3B8" stroke-width="2"/>
+  <text x="540" y="84" text-anchor="middle" font-size="12" font-weight="700" fill="#0F172A">Prompt</text>
+  <text x="540" y="124" text-anchor="middle" font-size="10" font-weight="600" fill="#475569">assembled</text>
+  <text x="540" y="137" text-anchor="middle" font-size="10" font-weight="600" fill="#475569">prompt shape</text>
+
+  <path d="M592 80 H608" stroke="#475569" stroke-width="2" stroke-linecap="round"/>
+  <path d="M601 74 L608 80 L601 86" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="612" y="56" width="96" height="48" rx="10" fill="#F1F5F9" stroke="#94A3B8" stroke-width="2"/>
+  <text x="660" y="84" text-anchor="middle" font-size="12" font-weight="700" fill="#0F172A">Answer</text>
+  <text x="660" y="124" text-anchor="middle" font-size="10" font-weight="600" fill="#475569">final answer</text>
+
+  <!-- timing bar across all stages -->
+  <rect x="12" y="178" width="696" height="18" rx="9" fill="#EFF6FF" stroke="#2563EB"/>
+  <path d="M120 178 V196 M240 178 V196 M360 178 V196 M480 178 V196 M600 178 V196" stroke="#BFDBFE" stroke-width="1.5"/>
+  <text x="360" y="222" text-anchor="middle" font-size="11" font-weight="700" fill="#2563EB">Timing captured across each stage</text>
+</svg>

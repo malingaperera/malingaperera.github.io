@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="220" viewBox="0 0 720 220" fill="none" font-family="Arial, Helvetica, sans-serif">
+  <rect width="720" height="220" fill="#FFFFFF"/>
+
+  <text x="360" y="32" text-anchor="middle" font-size="16" font-weight="700" fill="#0F172A">Request flows down to the model; the response returns up the same path</text>
+
+  <!-- request row -->
+  <rect x="25" y="64" width="110" height="56" rx="10" fill="#F1F5F9" stroke="#94A3B8" stroke-width="2"/>
+  <text x="80" y="97" text-anchor="middle" font-size="13" font-weight="600" fill="#0F172A">User / app</text>
+
+  <path d="M139 92 H159" stroke="#475569" stroke-width="2" stroke-linecap="round"/>
+  <path d="M152 86 L159 92 L152 98" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="165" y="64" width="110" height="56" rx="10" fill="#F1F5F9" stroke="#94A3B8" stroke-width="2"/>
+  <text x="220" y="97" text-anchor="middle" font-size="13" font-weight="600" fill="#0F172A">API layer</text>
+
+  <path d="M279 92 H299" stroke="#475569" stroke-width="2" stroke-linecap="round"/>
+  <path d="M292 86 L299 92 L292 98" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="305" y="64" width="110" height="56" rx="10" fill="#F1F5F9" stroke="#94A3B8" stroke-width="2"/>
+  <text x="360" y="89" text-anchor="middle" font-size="13" font-weight="600" fill="#0F172A">Service</text>
+  <text x="360" y="106" text-anchor="middle" font-size="12" font-weight="600" fill="#475569">(Lambda)</text>
+
+  <path d="M419 92 H439" stroke="#475569" stroke-width="2" stroke-linecap="round"/>
+  <path d="M432 86 L439 92 L432 98" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="445" y="64" width="110" height="56" rx="10" fill="#F1F5F9" stroke="#94A3B8" stroke-width="2"/>
+  <text x="500" y="97" text-anchor="middle" font-size="13" font-weight="600" fill="#0F172A">KB retrieval</text>
+
+  <path d="M559 92 H579" stroke="#475569" stroke-width="2" stroke-linecap="round"/>
+  <path d="M572 86 L579 92 L572 98" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="585" y="64" width="110" height="56" rx="10" fill="#F1F5F9" stroke="#94A3B8" stroke-width="2"/>
+  <text x="640" y="89" text-anchor="middle" font-size="13" font-weight="600" fill="#0F172A">Answer</text>
+  <text x="640" y="106" text-anchor="middle" font-size="12" font-weight="600" fill="#475569">generation</text>
+
+  <!-- return path -->
+  <path d="M640 122 V185 H80 V122" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M74 130 L80 122 L86 130" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="190" y="172" width="340" height="26" rx="13" fill="#FFFFFF"/>
+  <text x="360" y="189" text-anchor="middle" font-size="12" font-weight="600" fill="#2563EB">answer &#8594; service &#8594; API &#8594; caller</text>
+</svg>
