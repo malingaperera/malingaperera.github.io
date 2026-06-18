@@ -129,7 +129,7 @@ This post turns the system into something measurable. It covers gold sets, failu
 
 ### Part 10: [Production Security, Freshness, Observability, and Cost]({{ '/agentic-rag-production-operations/' | relative_url }})
 
-This final post closes the series by focusing on how to run the system safely over time. It covers the production API shape, data freshness, security, observability, cost, scaling, CI/CD, fallback behavior, and a set of practical operating best practices. It is where the architecture becomes a real service rather than a successful demo.
+This final post closes the series by focusing on how to run the system safely over time. It covers the production API shape, data freshness, security, observability, cost, scaling, CI/CD, fallback behavior, and a practical operational default to start from. It is where the architecture becomes a real service rather than a successful demo.
 
 ## What You Will Learn From This Series
 
