@@ -28,7 +28,7 @@ This post breaks down how each option really works, walks through a few concrete
 
 <p style="font-size:0.8rem;color:var(--global-text-color-light);line-height:1.5;"><em>Not financial advice.</em> This is general information for an owner-occupier with a home loan. It ignores your personal circumstances. Tax rules, offset mechanics, and product features vary by country and change over time. Talk to a licensed adviser before acting.</p>
 
-## TL;DR
+## Summary
 
 Investing a **$100,000 lump sum** for **20 years** in an S&P 500 ETF (IVV's ~8.5% long-run return) versus parking it in your offset (owner-occupier), after all tax.
 
@@ -51,7 +51,7 @@ Investing a **$100,000 lump sum** for **20 years** in an S&P 500 ETF (IVV's ~8.5
 
 <small>\*Assumes low income across the whole period. Even at a 0% marginal rate the new rules still levy a **30% minimum tax** on the capital gain (pensioners and money held inside super are exempt) — so selling in retirement saves less than it used to.</small>
 
-**What we make of today's ~6.15% rates:** we'd lean towards the **offset** — even though it finishes about **$43,000 behind** the ETF over 20 years (roughly $2k a year). That gap is the *only* thing the ETF wins, and it isn't guaranteed: you'd be buying it with two decades of market swings, the risk of being forced to sell in a crash, and the discipline not to panic — a thin, uncertain premium for all that. The offset delivers a near-identical outcome that's **guaranteed, tax-free, zero-risk and fully liquid**. Push the loan rate to 7%+ and it wins outright.
+**What we make of today's ~6.15% rates:** we'd lean towards the **offset** — even though it finishes about **$43,000 behind** the ETF over 20 years (roughly $2k a year). That gap is the *only* thing the ETF wins, and it isn't guaranteed: you'd be buying it with two decades of market swings, the risk of being forced to sell in a crash, and the discipline not to panic — a thin, uncertain premium for all that. The offset delivers a near-identical outcome that's **guaranteed, tax-free and zero-risk** — and your $100,000 itself stays fully liquid (the interest saved pays down principal, so that part builds up as home equity). Push the loan rate to 7%+ and it wins outright.
 
 But it's **never purely one or the other.** The sensible play is to do *both* — keep a solid offset buffer *and* invest — and shift the balance with your circumstances: tilt towards investing when your loan rate is low or your tax bracket is low, and towards the offset when your rate is high or you're a high earner.
 
@@ -129,11 +129,11 @@ ETFs aren't *fully* taxed every year, though — only the dividends are taxed an
 
 ## How the numbers are worked out
 
-The TL;DR table is just three runs of the same calculation. Here it is in full for the **6.15% (current)** row — a single **$100,000 lump sum** over **20 years**, against a **$1,000,000 mortgage on a 30-year term** (a typical Sydney loan), at a 39% marginal tax rate. The **S&P 500 ETF** returns **8.5% total (1.2% dividends + 7.3% growth)** — IVV's actual annualised return since its 2000 inception, through the dot-com crash and the GFC — taxed under the **new post-2027 CGT rules** (2.5% inflation indexation + 30% minimum tax). All figures come straight from the calculator's model below; swap the loan rate to reproduce the other rows.
+The summary table is just three runs of the same calculation. Here it is in full for the **6.15% (current)** row — a single **$100,000 lump sum** over **20 years**, against a **$1,000,000 mortgage on a 30-year term** (a typical Sydney loan), at a 39% marginal tax rate. The **S&P 500 ETF** returns **8.5% total (1.2% dividends + 7.3% growth)** — IVV's actual annualised return since its 2000 inception, through the dot-com crash and the GFC — taxed under the **new post-2027 CGT rules** (2.5% inflation indexation + 30% minimum tax). All figures come straight from the calculator's model below; swap the loan rate to reproduce the other rows.
 
 Picture that **$1,000,000 mortgage at 6.15% over a 30-year term**, repaying about **$6,092/month**. Park **$100,000** in the offset and keep repaying the same amount.
 
-> **Why we measure the first 20 years, not the full 30.** Keeping repayments level, this offset actually clears the loan *early* — a few years before the 30-year term is up. Once the loan balance drops below your $100,000, the offset can no longer save interest on the whole amount and the maths gets messy. Across the first 20 years the loan is still ~$545,000 — comfortably above the offset — so everything below is exact.
+> **Why we measure the first 20 years, not the full 30.** Keeping repayments level, this offset actually clears the loan *early* — around year 23, roughly seven years ahead of the 30-year term. Once the loan balance drops below your $100,000, the offset can no longer save interest on the whole amount and the maths gets messy. At the 20-year mark the balance is still ~$304,000 even after all the extra principal the offset has paid down — comfortably above the offset — so everything below is exact.
 
 The offset account itself pays no interest — it just shrinks the balance you're charged on. Let's build the benefit up in pieces.
 
@@ -212,7 +212,7 @@ So you're **$341,050** better off — $241,050 of it pure, tax-free interest sav
 |---|---|---|
 | End value | **~$341,000** | **~$384,000** |
 
-**Closer than it looks.** The ETF ends ~$43,000 ahead over 20 years — about 13% more, but for two decades of market risk and volatility. Put another way: a *guaranteed, tax-free* offset at 6.15% nearly keeps pace with the S&P 500's long-run ~8.5% (its return since 2000, through two crashes). At a higher loan rate or tax bracket that gap closes or flips — as the TL;DR table and the tax section below show.
+**Closer than it looks.** The ETF ends ~$43,000 ahead over 20 years — about 13% more, but for two decades of market risk and volatility. Put another way: a *guaranteed, tax-free* offset at 6.15% nearly keeps pace with the S&P 500's long-run ~8.5% (its return since 2000, through two crashes). At a higher loan rate or tax bracket that gap closes or flips — as the summary table and the tax section below show.
 
 #### The full working for the ETF side
 
@@ -267,6 +267,7 @@ The top row is the classic strategy: hold the ETF and **sell in retirement** whe
 - **Sequence risk.** A market crash early in your journey hurts ETFs far more than the same crash late. The offset has none of this.
 - **Behaviour is a real return.** The best strategy is the one you'll actually stick with. Plenty of people sell ETFs at the bottom; nobody panic-sells an offset.
 - **Deductibility flips the maths.** This post assumes an *owner-occupier* loan (interest not deductible). For an *investment* loan the interest is tax-deductible, so offsetting reduces a deduction and the comparison changes.
+- **Currency risk.** IVV is unhedged, so as an Australian you earn the S&P 500's return *plus or minus* the AUD/USD move — the ~8.5% long-run figure is a US-dollar return, and in AUD terms currency swings can add or subtract several percent a year for long stretches. A hedged ETF removes this exposure but adds hedging costs. The offset has no currency exposure at all.
 - **Dividend tax nuances.** These examples use an S&P 500 (US) ETF, whose ~1.2% yield keeps annual tax drag low but carries ~15% US withholding tax (creditable against your Australian tax with a W-8BEN). Had we used *Australian* shares instead, franking credits would soften dividend tax further. The calculator uses a plain marginal-rate assumption on dividends, so treat it as a reasonable middle estimate.
 - **The middle path exists.** Many people do both: build the offset to a comfortable emergency buffer first, then invest the surplus. Others use **debt recycling** to get the best of both — get advice before going there.
 
@@ -587,7 +588,9 @@ Plug in your own numbers. It simulates month by month: the offset side grows you
 
     var diff = r.etfAfter - r.offset;
     var v = $('eo-verdict');
-    var pct = r.offset > 0 ? Math.abs(diff) / r.offset * 100 : 0;
+    var pct = diff > 0
+      ? (r.offset > 0 ? diff / r.offset * 100 : 0)
+      : (r.etfAfter > 0 ? -diff / r.etfAfter * 100 : 0);
     if (Math.abs(diff) < Math.max(r.offset, r.etfAfter) * 0.01){
       v.innerHTML = 'Over ' + r.years + ' years these are <b>almost a dead heat</b> (within ' +
         fmt(Math.abs(diff)) + '). When it’s this close, the offset’s zero risk and full liquidity are worth a lot.';
