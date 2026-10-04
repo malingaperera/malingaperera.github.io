@@ -43,7 +43,8 @@
 .fire-calc .fc-results { border-top: 1px solid var(--global-divider-color); margin-top: 0.4rem; padding-top: 1.2rem; display: grid; gap: 1.6rem; }
 .fire-calc .fc-results > * { min-width: 0; }
 .fire-calc .fc-sub { font-size: 0.85rem; color: var(--global-text-color-light); margin: 0 0 0.8rem; }
-.fire-calc .fc-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.9rem; }
+.fire-calc .fc-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.9rem; }
+@media (max-width: 576px) { .fire-calc .fc-cards { grid-template-columns: minmax(0, 1fr); } }
 .fire-calc .card { border-radius: 10px; padding: 0.9rem 1rem; border: 1px solid var(--global-divider-color); background: transparent; box-shadow: none; display: flex; flex-direction: column; gap: 0.45rem; }
 .fire-calc .card h3 { margin: 0; font-size: 1rem; font-weight: 700; display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; }
 .fire-calc .card .what { font-size: 0.78rem; color: var(--global-text-color-light); margin: 0; }
@@ -70,7 +71,7 @@
 
 /* Stages table in the post body, styled like the offset vs ETF pros/cons table */
 .fc-tbl { overflow-x: auto; margin: 0.5rem 0 0.6rem; }
-.fc-pc, .fc-pc.table-dark { width: 100%; min-width: 560px; border-collapse: collapse; margin: 0; font-size: 0.92rem; background: transparent; color: inherit; }
+.fc-pc, .fc-pc.table-dark { width: 100%; border-collapse: collapse; margin: 0; font-size: 0.92rem; background: transparent; color: inherit; }
 .fc-pc th, .fc-pc td { padding: 0.45rem 0.7rem; border: 1px solid var(--global-divider-color); text-align: left; vertical-align: top; }
 .fc-pc th { font-weight: 700; }
 .fc-pc td:first-child { font-weight: 600; white-space: nowrap; }
