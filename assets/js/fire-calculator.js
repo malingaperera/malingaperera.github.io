@@ -34,6 +34,13 @@ function incomeTax(g) {
 }
 const netIncome = g => g - incomeTax(g);
 
+// Gross salary whose after-tax pay is `net` (inverse of netIncome, which rises with income)
+function grossForNet(net) {
+  let lo = 0, hi = 1e7;
+  for (let i = 0; i < 60; i++) { const m = (lo + hi) / 2; if (netIncome(m) >= net) hi = m; else lo = m; }
+  return hi;
+}
+
 function agePension(p, assets, earned) {
   const c = p.couple ? 'couple' : 'single', P = AU.pension, max = P.max[c];
   const byAssets = max - Math.max(0, assets - P.assetLower[c][p.home ? 'home' : 'rent']) / 1000 * P.assetTaperPerK;
@@ -131,20 +138,16 @@ function analyse(p) {
       classic: spend / p.swr
     };
   }
-  // Barista: leave full-time now, part-time income until baristaUntil
-  const bo = { ...base, spend: p.spendFull, retireAge: now, contribUntil: now, barista: p.barista, baristaUntil: p.baristaUntil };
-  res.barista = {
-    req: required(p, bo), status: sim(p, bo),
-    earliest: earliest(p, R => ({ ...bo, retireAge: R, contribUntil: R })),
-    net: netIncome(p.barista)
-  };
-  // Coast: stop voluntary saving now, keep working (SG only if toggled) until coastAge, then full spend
-  const co = { ...base, spend: p.spendFull, retireAge: Math.max(now, p.coastAge), contribUntil: now, coastSalary: p.coastSalary };
+  // Coast: stop saving and switch to a part-time or low-stress job whose after-tax pay covers the target
+  // lifestyle until full retirement at coastAge. Its employer super contributions keep flowing to super.
+  const coastSalary = grossForNet(p.spendFull);
+  const co = { ...base, spend: p.spendFull, retireAge: Math.max(now, p.coastAge), contribUntil: now, coastSalary };
   res.coast = {
     req: required(p, co), status: sim(p, co),
-    earliest: earliest(p, X => ({ ...co, contribUntil: X }))
+    earliest: earliest(p, X => ({ ...co, contribUntil: X })),
+    salary: coastSalary
   };
-  for (const k of ['coast', 'barista', 'lean', 'full', 'fat']) res[k].at = res[k].earliest == null ? null : balanceAt(p, res[k].earliest);
+  for (const k of ['coast', 'lean', 'full', 'fat']) res[k].at = res[k].earliest == null ? null : balanceAt(p, res[k].earliest);
   // Path for chart: save until earliest Full FIRE age (or coastAge if none)
   const R = res.full.earliest ?? p.coastAge;
   res.path = sim(p, { ...base, spend: p.spendFull, retireAge: R, contribUntil: R, trace: true });
@@ -166,7 +169,7 @@ function analyse(p) {
 }
 
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { AU, incomeTax, netIncome, agePension, contribs, sim, bridgeAt, required, balanceAt, earliest, analyse };
+  module.exports = { AU, incomeTax, netIncome, grossForNet, agePension, contribs, sim, bridgeAt, required, balanceAt, earliest, analyse };
 }
 if (typeof document === 'undefined' || !document.getElementById('fire-calc')) return;
 
@@ -184,7 +187,6 @@ function read() {
     couple, home: $('home').checked, age: Math.round(v('age')), coastAge: Math.round(v('coastAge')), planAge: Math.round(v('planAge')),
     O: v('O'), S: v('S'), salary: v('salary'), salSac: v('salSac') * mult(), saveOutside: v('saveOutside') * mult(),
     spendLean: v('spendLean') * mult(), spendFull: v('spendFull') * mult(), spendFat: v('spendFat') * mult(),
-    barista: v('barista'), baristaUntil: Math.round(v('baristaUntil')), coastSalary: v('coastSalary'),
     rOut: v('rOut')/100, rSuper: v('rSuper')/100, swr: Math.max(0.005, v('swr')/100), pensionOn: $('pensionOn').checked
   };
 }
@@ -197,12 +199,13 @@ function card(name, what, r, p) {
   else { pill = `<span class="pill warn">In ${yrs} yr${yrs > 1 ? 's' : ''}</span>`; head = `Age ${e}`; sub = `${yrs} year${yrs > 1 ? 's' : ''} from now`; }
   const at = r.at;
   const saved = at ? `<div class="meta"><span>You'll have saved</span><b>${fmt(at.total)}</b></div>
-    <div class="split"><span><i style="background:var(--fc-out)"></i>${fmtK(at.O)} outside</span><span><i style="background:var(--fc-super)"></i>${fmtK(at.S)} super</span></div>` : '';
+    __OUTSIDE_SAVED__` : '';
   const need = r.req.total, have = p.O + p.S;
+  const outsideRow = (label, v) => v > 0.5 ? `<div class="split"><span><i style="background:var(--fc-out)"></i>${label} ${fmt(v)} outside super</span></div>` : '';
   const gap = isFinite(need) ? Math.max(0, need - have) : Infinity;
   const needRow = `<div class="needbox">
     <div class="meta"><span>Needed to do it today</span><b>${fmt(need)}</b></div>
-    ${isFinite(need) ? `<div class="split"><span><i style="background:var(--fc-out)"></i>${fmtK(r.req.outside)} outside</span><span><i style="background:var(--fc-super)"></i>${fmtK(r.req.superAmt)} super</span></div>` : ''}
+    ${isFinite(need) ? outsideRow('at least', r.req.outside) : ''}
     <div class="meta muted"><span>${gap > 0 ? 'Short by' : 'Surplus'}</span><b>${isFinite(gap) ? fmt(gap > 0 ? gap : have - need) : '—'}</b></div>
   </div>`;
   return `<article class="card">
@@ -210,12 +213,12 @@ function card(name, what, r, p) {
     <p class="what">${what}</p>
     <div><div class="big">${head}</div><div class="split">${sub}</div></div>
     ${needRow}
-    ${saved}
+    ${saved.replace('__OUTSIDE_SAVED__', at ? outsideRow('incl.', at.O) : '')}
   </article>`;
 }
 
 function timeline(res, p) {
-  const stages = [['Coast', res.coast], ['Barista', res.barista], ['Lean', res.lean], ['Full', res.full], ['Fat', res.fat]];
+  const stages = [['Coast', res.coast], ['Lean', res.lean], ['Full', res.full], ['Fat', res.fat]];
   const a0 = p.age, a1 = Math.max(a0 + 10, ...stages.map(([, r]) => r.earliest ?? 0)) + 2;
   const W = 760, H = 106, L = 16, R = 16, y0 = 72;
   const x = a => L + (a - a0) / (a1 - a0) * (W - L - R);
@@ -267,7 +270,7 @@ function kpis(res, p) {
     ['Classic FI number', fmt(res.full.classic), `Target spend ÷ ${(p.swr*100).toFixed(1)}% SWR, ignoring super rules and the pension`],
     ['Age Pension at 67', p.pensionOn ? fmt(res.pensionAt67) + ' /yr' : 'Off', p.pensionOn ? `On the Full FIRE path; ${Math.round(res.pensionAt67 / p.spendFull * 100)}% of target spend` : 'Turn on to include it'],
     ['Pension saves you', p.pensionOn ? fmt(res.pensionOffset) : '—', 'Reduction in Full FIRE number because the pension takes over part of spending'],
-    ['Savings rate', Math.round(res.savingsRate * 100) + '%', 'Outside investing plus SG and salary sacrifice, as a share of gross salary'],
+    ['Savings rate', Math.round(res.savingsRate * 100) + '%', 'Outside investing plus employer super contributions and salary sacrifice, as a share of gross salary'],
     ['Concessional cap used', fmt(c.raw) + ' of ' + fmt(c.cap), c.raw > c.cap ? 'Over the cap: the excess is taxed at your marginal rate' : 'Unused cap can be carried forward 5 years if super is under $500k', c.raw > c.cap],
     ['Peak super per person', fmt(res.peakSuperPP), res.peakSuperPP > AU.div296 ? 'Over $3M: Division 296 adds 15% tax on earnings above it' : res.peakSuperPP > AU.tbc ? 'Over the $2.1M transfer balance cap: the excess stays in taxed accumulation' : 'Within the $2.1M tax-free pension cap', res.peakSuperPP > AU.tbc],
   ];
@@ -282,8 +285,7 @@ function render() {
   const perMo = n => '$' + Math.round(n / 12).toLocaleString('en-AU') + ' a month';
   $('standSub').textContent = `If you keep investing ${perMo(p.saveOutside)} outside super, plus ${perMo(res.contribs.total)} going into super from your salary, this is when you reach each stage and what you'll have saved by then. Each stage is worked out on its own. You have ${fmt(have)} today.`;
   $('cards').innerHTML = [
-    card('Coast FIRE', `Stop investing, keep a ${fmtK(p.coastSalary)} job to pay the bills until ${p.coastAge}, then live on ${sp(p.spendFull)}.`, res.coast, p),
-    card('Barista FIRE', `Switch to a ${fmtK(p.barista)} part-time job until ${p.baristaUntil} and live on ${sp(p.spendFull)}.`, res.barista, p),
+    card('Coast FIRE', `Stop investing and switch to a part-time or low-stress job paying ${sp(p.spendFull)} after tax (about ${fmtK(res.coast.salary)} a year before tax) until you retire at ${p.coastAge}.`, res.coast, p),
     card('Lean FIRE', `Stop work and live on ${sp(p.spendLean)} for life.`, res.lean, p),
     card('Full FIRE', `Stop work and live on ${sp(p.spendFull)} for life.`, res.full, p),
     card('Fat FIRE', `Stop work and live on ${sp(p.spendFat)} for life.`, res.fat, p),
@@ -314,7 +316,7 @@ function showCouple(c) {
 
 // Remember the visitor's numbers in their own browser. Saved only after they change something,
 // so untouched visitors always get the current defaults. Bump the key if the inputs change meaning.
-const STORE = 'aussie-fire-calc-v1';
+const STORE = 'aussie-fire-calc-v2';
 const inputs = () => document.querySelectorAll('.fire-calc input');
 function save() {
   try {
