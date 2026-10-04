@@ -202,6 +202,7 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - vendor
+  - tests
 keep_files:
   - CNAME
   - .nojekyll
@@ -239,7 +240,7 @@ sass:
 # -----------------------------------------------------------------------------
 
 jekyll-minifier:
-  exclude: ['robots.txt']
+  exclude: ['robots.txt', 'assets/js/fire-calculator.js']
   uglifier_args:
     harmony: true
 
